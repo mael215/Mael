@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cascos hats Arivat</title>
+    <title>Cascos Hats Arivat</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,6 +22,7 @@
         }
         .container {
             margin-top: 50px;
+            display: none; /* Ocultamos la tienda al inicio */
         }
         .boton {
             background-color: #ff6600;
@@ -48,32 +49,48 @@
             background-color: #222;
             color: white;
         }
+        .inicio {
+            margin-top: 100px;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        Tienda de Cascos
+        Cascos Hats Arivat
     </header>
 
-    <div class="container">
-        <h2>pasele por su bello casco para andar al millon</h2>
+    <!-- Pantalla de bienvenida -->
+    <div id="inicio" class="inicio">
+        <h2>¡Bienvenido a Cascos Hats Arivat!</h2>
+        <p>Tu mejor opción para comprar cascos de calidad y andar al millón.</p>
+        <button class="boton" onclick="ingresar()">Ingresar</button>
+    </div>
+
+    <!-- Contenido de la tienda (oculto al inicio) -->
+    <div id="tienda" class="container">
+        <h2>¡Pásele por su bello casco para andar al millón!</h2>
         <p>Elige el tipo de casco que deseas comprar:</p>
 
         <button class="boton" onclick="comprar('Casco Deportivo')">Casco Deportivo</button>
         <button class="boton" onclick="comprar('Casco Modular')">Casco Modular</button>
-        <button class="boton" onclick="comprar('Casco Integral')">Casco Integral</button>
-        <button class="boton" onclick="comprar('Casco Off-Road')">Casco Off-Road</button>
+        <button class="boton" onclick="comprar('Casco guason')">Casco Integral</button>
+        <button class="boton" onclick="comprar('Casco batman')">Casco Off-Road</button>
         <button class="boton" onclick="comprar('Casco Abierto')">Casco Abierto</button>
 
         <p id="mensaje" class="mensaje"></p>
     </div>
 
     <footer>
-        © 2025 Tienda de Cascos | ¡Gracias por tu compra!
+        © 2025 Cascos Hats Arivat | ¡Gracias por tu compra!
     </footer>
 
     <script>
+        function ingresar() {
+            document.getElementById("inicio").style.display = "none"; // Oculta la pantalla de inicio
+            document.getElementById("tienda").style.display = "block"; // Muestra la tienda
+        }
+
         function comprar(tipo) {
             document.getElementById("mensaje").innerText = "¡Gracias por comprar un " + tipo + "!";
         }
