@@ -52,6 +52,10 @@
         .inicio {
             margin-top: 100px;
         }
+        .pago {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -72,13 +76,22 @@
         <h2>¡Pásele por su bello casco para andar al millón!</h2>
         <p>Elige el tipo de casco que deseas comprar:</p>
 
-        <button class="boton" onclick="comprar('Casco Deportivo $1900')">Casco Deportivo</button>
-        <button class="boton" onclick="comprar('Casco Modular $1400')">Casco Modular</button>
-        <button class="boton" onclick="comprar('Casco joker $2000')">Casco joker</button>
-        <button class="boton" onclick="comprar('Casco rockero $3000')">Casco rockero</button>
-        <button class="boton" onclick="comprar('Casco Abierto $2310')">Casco Abierto</button>
+        <button class="boton" onclick="comprar('Casco Deportivo')">Casco Deportivo</button>
+        <button class="boton" onclick="comprar('Casco Modular')">Casco Modular</button>
+        <button class="boton" onclick="comprar('Casco Integral')">Casco Integral</button>
+        <button class="boton" onclick="comprar('Casco Off-Road')">Casco Off-Road</button>
+        <button class="boton" onclick="comprar('Casco Abierto')">Casco Abierto</button>
 
         <p id="mensaje" class="mensaje"></p>
+
+        <!-- Sección de confirmación de compra -->
+        <div id="confirmacion" class="pago">
+            <h3>Selecciona tu método de pago:</h3>
+            <button class="boton" onclick="confirmarCompra('Efectivo')">Efectivo</button>
+            <button class="boton" onclick="confirmarCompra('Tarjeta')">Tarjeta</button>
+        </div>
+
+        <p id="mensajeFinal" class="mensaje"></p>
     </div>
 
     <footer>
@@ -92,7 +105,13 @@
         }
 
         function comprar(tipo) {
-            document.getElementById("mensaje").innerText = "¡Gracias por comprar un " + tipo + "!";
+            document.getElementById("mensaje").innerText = "Has seleccionado: " + tipo;
+            document.getElementById("confirmacion").style.display = "block"; // Muestra opciones de pago
+        }
+
+        function confirmarCompra(metodo) {
+            document.getElementById("mensajeFinal").innerText = "¡Gracias por tu compra! Has elegido pagar con " + metodo + ".\nEl pago se realizará de manera presencial al entregar tu casco.";
+            document.getElementById("confirmacion").style.display = "none"; // Oculta opciones de pago
         }
     </script>
 
