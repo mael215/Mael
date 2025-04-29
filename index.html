@@ -6,16 +6,8 @@
   <title>Cascos Hats Arivat</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #fff;
-      color: #333;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
     header {
       background-color: #000;
       color: #fff;
@@ -46,19 +38,17 @@
       font-weight: bold;
       transition: color 0.3s;
     }
-    nav a:hover {
-      color: #bfa230;
-    }
+    nav a:hover { color: #bfa230; }
     .inicio {
       margin-top: 130px;
       height: calc(100vh - 130px);
-      background: url('https://i.pinimg.com/originals/ba/2e/6e/ba2e6e4245a5c9d9a275f020c417785e.jpg') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1628761565722-0f1e1f6a8b02?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       color: white;
-      text-shadow: 2px 2px 5px black;
+      text-shadow: 2px 2px 8px black;
       text-align: center;
     }
     .boton {
@@ -73,9 +63,7 @@
       margin-top: 20px;
       transition: background-color 0.3s;
     }
-    .boton:hover {
-      background-color: #bfa230;
-    }
+    .boton:hover { background-color: #bfa230; }
     .container {
       margin-top: 180px;
       display: none;
@@ -96,25 +84,15 @@
       padding: 20px;
       transition: transform 0.3s;
     }
-    .card:hover {
-      transform: translateY(-8px);
-    }
+    .card:hover { transform: translateY(-8px); }
     .card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
     }
-    .product-name {
-      font-size: 20px;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .price {
-      font-size: 18px;
-      color: #555;
-      margin: 10px 0;
-    }
+    .product-name { font-size: 20px; margin-top: 15px; font-weight: bold; }
+    .price { font-size: 18px; color: #555; margin: 10px 0; }
     footer {
       background-color: #000;
       color: white;
@@ -123,98 +101,87 @@
       font-size: 14px;
       margin-top: 50px;
     }
-
+    .resumen {
+      text-align: center;
+      padding: 30px;
+      font-size: 18px;
+      display: none;
+    }
     /* Responsive */
     @media (max-width: 768px) {
-      nav {
-        gap: 20px;
-      }
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .card {
-        width: 90%;
-      }
-      .inicio {
-        padding: 20px;
-      }
+      nav { gap: 20px; }
+      .container { flex-direction: column; align-items: center; }
+      .card { width: 90%; }
+      .inicio { padding: 20px; }
     }
     @media (max-width: 480px) {
-      header {
-        font-size: 24px;
-      }
-      nav a {
-        font-size: 16px;
-      }
-      .boton {
-        padding: 12px 25px;
-        font-size: 18px;
-      }
+      header { font-size: 24px; }
+      nav a { font-size: 16px; }
+      .boton { padding: 12px 25px; font-size: 18px; }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  Cascos Hats Arivat
-</header>
+<header>Cascos Hats Arivat</header>
 
 <nav>
   <a href="#inicio" onclick="mostrarInicio()">Inicio</a>
   <a href="#tienda" onclick="mostrarTienda()">Tienda</a>
 </nav>
 
-<!-- Página de bienvenida -->
+<!-- Pantalla de bienvenida -->
 <div id="inicio" class="inicio">
   <button class="boton" onclick="mostrarTienda()">Ingresar a la tienda</button>
 </div>
 
 <!-- Tienda -->
 <div id="tienda" class="container">
-
   <div class="card">
     <img src="https://i.ibb.co/f9RMp4F/agv1.jpg" alt="AGV Pista GP RR Limited">
     <div class="product-name">AGV Pista GP RR Limited</div>
     <div class="price">$23,500 MXN</div>
-    <button class="boton" onclick="comprar('AGV Pista GP RR Limited')">Comprar</button>
+    <button class="boton" onclick="agregarProducto('AGV Pista GP RR Limited', 23500)">Agregar</button>
   </div>
-
   <div class="card">
     <img src="https://i.ibb.co/tZ3VvwH/agv2.jpg" alt="AGV K6 S">
     <div class="product-name">AGV K6 S</div>
     <div class="price">$14,200 MXN</div>
-    <button class="boton" onclick="comprar('AGV K6 S')">Comprar</button>
+    <button class="boton" onclick="agregarProducto('AGV K6 S', 14200)">Agregar</button>
   </div>
-
   <div class="card">
     <img src="https://i.ibb.co/sPcB5tb/agv3.jpg" alt="AGV Pista GP RR Mugello">
     <div class="product-name">AGV Pista GP RR Mugello</div>
     <div class="price">$25,000 MXN</div>
-    <button class="boton" onclick="comprar('AGV Pista GP RR Mugello')">Comprar</button>
+    <button class="boton" onclick="agregarProducto('AGV Pista GP RR Mugello', 25000)">Agregar</button>
   </div>
-
   <div class="card">
     <img src="https://i.ibb.co/cbF24d9/agv4.jpg" alt="AGV Sport Modular">
     <div class="product-name">AGV Sport Modular</div>
     <div class="price">$18,500 MXN</div>
-    <button class="boton" onclick="comprar('AGV Sport Modular')">Comprar</button>
+    <button class="boton" onclick="agregarProducto('AGV Sport Modular', 18500)">Agregar</button>
   </div>
-
+  <div style="width:100%; text-align:center; margin-top: 30px;">
+    <button class="boton" onclick="elegirPago()">Finalizar Compra</button>
+  </div>
 </div>
+
+<!-- Resumen de compra -->
+<div id="resumen" class="resumen"></div>
 
 <footer>
   © 2025 Cascos Hats Arivat | Seguridad, lujo y rendimiento.
 </footer>
 
 <script>
+  let carrito = [];
+
   function mostrarTienda() {
     document.getElementById("inicio").style.display = "none";
     let tienda = document.getElementById("tienda");
     tienda.style.display = "flex";
-    setTimeout(() => {
-      tienda.style.opacity = "1";
-    }, 100);
+    setTimeout(() => { tienda.style.opacity = "1"; }, 100);
   }
 
   function mostrarInicio() {
@@ -226,8 +193,39 @@
     }, 500);
   }
 
-  function comprar(producto) {
-    alert("Has seleccionado: " + producto + ". Nuestro equipo se pondrá en contacto contigo.");
+  function agregarProducto(nombre, precio) {
+    carrito.push({ nombre, precio });
+    alert(nombre + " agregado al carrito.");
+  }
+
+  function elegirPago() {
+    if (carrito.length === 0) {
+      alert("No has seleccionado ningún casco.");
+      return;
+    }
+    let metodo = prompt("¿Deseas pagar con Tarjeta o Efectivo? (Escribe tu opción)");
+    if (!metodo) return;
+    metodo = metodo.toLowerCase();
+    if (metodo !== "tarjeta" && metodo !== "efectivo") {
+      alert("Método inválido. Intenta nuevamente.");
+      return;
+    }
+    mostrarResumen(metodo);
+  }
+
+  function mostrarResumen(metodo) {
+    document.getElementById("tienda").style.display = "none";
+    let resumen = document.getElementById("resumen");
+    let listaProductos = carrito.map(item => "- " + item.nombre).join("<br>");
+    let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+    resumen.innerHTML = `
+      <h2>Resumen de tu compra</h2><br>
+      ${listaProductos}<br><br>
+      <strong>Total:</strong> $${total.toLocaleString()} MXN<br>
+      <strong>Método de pago:</strong> ${metodo.charAt(0).toUpperCase() + metodo.slice(1)}<br><br>
+      <em>Se cobrará al entregar su pedido.</em>
+    `;
+    resumen.style.display = "block";
   }
 </script>
 
