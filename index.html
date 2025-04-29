@@ -2,68 +2,94 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cascos Hats Arivat</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    * {
       margin: 0;
-      background-color: #ffffff;
-      color: #222;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fff;
+      color: #333;
     }
     header {
-      background-color: #0b0c10;
-      color: #f5c518;
+      background-color: #000;
+      color: #fff;
       text-align: center;
-      padding: 25px;
-      font-size: 32px;
-      letter-spacing: 2px;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      background-color: #222;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      position: fixed;
+      top: 70px;
+      width: 100%;
+      z-index: 999;
+    }
+    nav a {
+      color: #d4af37;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #bfa230;
     }
     .inicio {
-      height: 100vh;
-      background-color: #0b0c10;
-      color: white;
+      margin-top: 130px;
+      height: calc(100vh - 130px);
+      background: url('https://i.pinimg.com/originals/ba/2e/6e/ba2e6e4245a5c9d9a275f020c417785e.jpg') no-repeat center center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      color: white;
+      text-shadow: 2px 2px 5px black;
       text-align: center;
-      padding: 20px;
-    }
-    .inicio h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      color: #f5c518;
-    }
-    .inicio p {
-      font-size: 22px;
-      margin-bottom: 40px;
-      color: #bbb;
     }
     .boton {
-      background-color: #f5c518;
+      background-color: #d4af37;
       border: none;
-      color: #0b0c10;
+      color: #000;
       padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 8px;
       cursor: pointer;
+      margin-top: 20px;
       transition: background-color 0.3s;
     }
     .boton:hover {
-      background-color: #d4aa00;
+      background-color: #bfa230;
     }
     .container {
-      padding: 40px 20px;
+      margin-top: 180px;
       display: none;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
+      padding: 30px;
+      background-color: #f9f9f9;
+      opacity: 0;
+      transition: opacity 1s;
     }
     .card {
-      background-color: white;
-      border-radius: 8px;
+      background-color: #fff;
+      border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.15);
       width: 280px;
       text-align: center;
@@ -75,27 +101,56 @@
     }
     .card img {
       width: 100%;
-      height: 220px;
+      height: 200px;
       object-fit: cover;
-      border-radius: 5px;
+      border-radius: 10px;
     }
     .product-name {
       font-size: 20px;
-      margin: 15px 0 5px;
+      margin-top: 15px;
       font-weight: bold;
     }
     .price {
-      color: #0b0c10;
       font-size: 18px;
-      margin-bottom: 15px;
+      color: #555;
+      margin: 10px 0;
     }
     footer {
-      background-color: #0b0c10;
+      background-color: #000;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 15px;
       font-size: 14px;
+      margin-top: 50px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        gap: 20px;
+      }
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 90%;
+      }
+      .inicio {
+        padding: 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        font-size: 24px;
+      }
+      nav a {
+        font-size: 16px;
+      }
+      .boton {
+        padding: 12px 25px;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -105,65 +160,74 @@
   Cascos Hats Arivat
 </header>
 
+<nav>
+  <a href="#inicio" onclick="mostrarInicio()">Inicio</a>
+  <a href="#tienda" onclick="mostrarTienda()">Tienda</a>
+</nav>
+
 <!-- Página de bienvenida -->
 <div id="inicio" class="inicio">
-  <h1>Protege tu pasión. Conquista el camino.</h1>
-  <p>Descubre los mejores cascos AGV para dominar cualquier pista o calle.</p>
-  <button class="boton" onclick="entrar()">Ingresar</button>
+  <button class="boton" onclick="mostrarTienda()">Ingresar a la tienda</button>
 </div>
 
 <!-- Tienda -->
 <div id="tienda" class="container">
 
   <div class="card">
-    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dwb97a4b45/images/large/1/1/1/111540400101_Full_Ax9_Hi-Vis-Black-Red-Lime.png" alt="Casco AGV AX9">
-    <div class="product-name">AGV AX9 Adventure</div>
-    <div class="price">$6,900 MXN</div>
-    <button class="boton" onclick="comprar('AGV AX9 Adventure')">Comprar</button>
+    <img src="https://i.ibb.co/f9RMp4F/agv1.jpg" alt="AGV Pista GP RR Limited">
+    <div class="product-name">AGV Pista GP RR Limited</div>
+    <div class="price">$23,500 MXN</div>
+    <button class="boton" onclick="comprar('AGV Pista GP RR Limited')">Comprar</button>
   </div>
 
   <div class="card">
-    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dw7b0c3ba1/images/large/1/1/1/111540600101_Full_Ax9_Black-Carbon-Red.png" alt="Casco AGV Carbon">
-    <div class="product-name">AGV AX9 Carbon Red</div>
-    <div class="price">$9,500 MXN</div>
-    <button class="boton" onclick="comprar('AGV AX9 Carbon Red')">Comprar</button>
+    <img src="https://i.ibb.co/tZ3VvwH/agv2.jpg" alt="AGV K6 S">
+    <div class="product-name">AGV K6 S</div>
+    <div class="price">$14,200 MXN</div>
+    <button class="boton" onclick="comprar('AGV K6 S')">Comprar</button>
   </div>
 
   <div class="card">
-    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dw31c7edaf/images/large/2/0/2/202100A0I0003_Full_Pista-GP-RR-Soleluna-2022.png" alt="Casco AGV Pista GP RR">
-    <div class="product-name">AGV Pista GP RR Soleluna</div>
-    <div class="price">$23,000 MXN</div>
-    <button class="boton" onclick="comprar('AGV Pista GP RR Soleluna')">Comprar</button>
+    <img src="https://i.ibb.co/sPcB5tb/agv3.jpg" alt="AGV Pista GP RR Mugello">
+    <div class="product-name">AGV Pista GP RR Mugello</div>
+    <div class="price">$25,000 MXN</div>
+    <button class="boton" onclick="comprar('AGV Pista GP RR Mugello')">Comprar</button>
   </div>
 
   <div class="card">
-    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dw7e88f61d/images/large/2/0/2/202100A4MY001_Full_Pista-GP-RR-ECE-DOT-Performance-Carbonskin.png" alt="Casco AGV Carbonskin">
-    <div class="product-name">AGV Pista GP RR Carbon Skin</div>
-    <div class="price">$20,500 MXN</div>
-    <button class="boton" onclick="comprar('AGV Pista GP RR Carbon Skin')">Comprar</button>
-  </div>
-
-  <div class="card">
-    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dw70631e13/images/large/2/0/2/202100A2MY001_Full_Pista-GP-RR-ECE-DOT-Rossi-Mugello-2022.png" alt="Casco AGV Rossi">
-    <div class="product-name">AGV Pista GP RR Rossi Mugello</div>
-    <div class="price">$24,000 MXN</div>
-    <button class="boton" onclick="comprar('AGV Pista GP RR Rossi Mugello')">Comprar</button>
+    <img src="https://i.ibb.co/cbF24d9/agv4.jpg" alt="AGV Sport Modular">
+    <div class="product-name">AGV Sport Modular</div>
+    <div class="price">$18,500 MXN</div>
+    <button class="boton" onclick="comprar('AGV Sport Modular')">Comprar</button>
   </div>
 
 </div>
 
 <footer>
-  © 2025 Cascos Hats Arivat | Calidad y seguridad sobre dos ruedas.
+  © 2025 Cascos Hats Arivat | Seguridad, lujo y rendimiento.
 </footer>
 
 <script>
-  function entrar() {
+  function mostrarTienda() {
     document.getElementById("inicio").style.display = "none";
-    document.getElementById("tienda").style.display = "flex";
+    let tienda = document.getElementById("tienda");
+    tienda.style.display = "flex";
+    setTimeout(() => {
+      tienda.style.opacity = "1";
+    }, 100);
   }
 
-  function comprar(casco) {
-    alert("Has seleccionado: " + casco + ". Nuestro equipo se pondrá en contacto contigo.");
+  function mostrarInicio() {
+    let tienda = document.getElementById("tienda");
+    tienda.style.opacity = "0";
+    setTimeout(() => {
+      tienda.style.display = "none";
+      document.getElementById("inicio").style.display = "flex";
+    }, 500);
+  }
+
+  function comprar(producto) {
+    alert("Has seleccionado: " + producto + ". Nuestro equipo se pondrá en contacto contigo.");
   }
 </script>
 
