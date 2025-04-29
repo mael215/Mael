@@ -1,133 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cascos Hats Arivat</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background-color: #111;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            font-size: 28px;
-            letter-spacing: 1px;
-        }
-        .container {
-            padding: 40px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 280px;
-            text-align: center;
-            padding: 20px;
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-        .product-name {
-            font-size: 20px;
-            margin: 15px 0 5px;
-            font-weight: bold;
-        }
-        .price {
-            color: #ff6600;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-        .boton {
-            background-color: #ff6600;
-            border: none;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .boton:hover {
-            background-color: #cc5500;
-        }
-        footer {
-            background-color: #111;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cascos Hats Arivat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #0b0c10;
+      color: #f5c518;
+      text-align: center;
+      padding: 25px;
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+    .inicio {
+      height: 100vh;
+      background-color: #0b0c10;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .inicio h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #f5c518;
+    }
+    .inicio p {
+      font-size: 22px;
+      margin-bottom: 40px;
+      color: #bbb;
+    }
+    .boton {
+      background-color: #f5c518;
+      border: none;
+      color: #0b0c10;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .boton:hover {
+      background-color: #d4aa00;
+    }
+    .container {
+      padding: 40px 20px;
+      display: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      width: 280px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .product-name {
+      font-size: 20px;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    .price {
+      color: #0b0c10;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    footer {
+      background-color: #0b0c10;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        Cascos Hats Arivat
-    </header>
+<header>
+  Cascos Hats Arivat
+</header>
 
-    <div class="container">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1598514983330-53b55088f37c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDl8fG1vdG9yY3ljbGUgY2FzY298ZW58MHx8fHwxNjg4Nzc1NzQ1&ixlib=rb-4.0.3&q=80&w=400" alt="Casco Deportivo">
-            <div class="product-name">Casco Deportivo</div>
-            <div class="price">$1,900 MXN</div>
-            <button class="boton" onclick="comprar('Casco Deportivo')">Comprar</button>
-        </div>
+<!-- Página de bienvenida -->
+<div id="inicio" class="inicio">
+  <h1>Protege tu pasión. Conquista el camino.</h1>
+  <p>Descubre los mejores cascos AGV para dominar cualquier pista o calle.</p>
+  <button class="boton" onclick="entrar()">Ingresar</button>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1602932028291-4e733a1c2db9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fG1vZHVsYXIgY2FzY298ZW58MHx8fHwxNjg4Nzc1ODA1&ixlib=rb-4.0.3&q=80&w=400" alt="Casco Modular">
-            <div class="product-name">Casco Modular</div>
-            <div class="price">$2,500 MXN</div>
-            <button class="boton" onclick="comprar('Casco Modular')">Comprar</button>
-        </div>
+<!-- Tienda -->
+<div id="tienda" class="container">
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1584475521624-0c7b982f650c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDN8fGFndiUyMGhlbG1ldHxlbnwwfHx8fDE2ODg3NzU4NjA&ixlib=rb-4.0.3&q=80&w=400" alt="Casco AGV">
-            <div class="product-name">Casco AGV</div>
-            <div class="price">$6,000 MXN</div>
-            <button class="boton" onclick="comprar('Casco AGV')">Comprar</button>
-        </div>
+  <div class="card">
+    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dwb97a4b45/images/large/1/1/1/111540400101_Full_Ax9_Hi-Vis-Black-Red-Lime.png" alt="Casco AGV AX9">
+    <div class="product-name">AGV AX9 Adventure</div>
+    <div class="price">$6,900 MXN</div>
+    <button class="boton" onclick="comprar('AGV AX9 Adventure')">Comprar</button>
+  </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1614887775702-7edb5e5a557d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGpldHQlMjBoZWxtZXR8ZW58MHx8fHwxNjg4Nzc1OTA0&ixlib=rb-4.0.3&q=80&w=400" alt="Casco Jett">
-            <div class="product-name">Casco Jett</div>
-            <div class="price">$3,500 MXN</div>
-            <button class="boton" onclick="comprar('Casco Jett')">Comprar</button>
-        </div>
+  <div class="card">
+    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dw7b0c3ba1/images/large/1/1/1/111540600101_Full_Ax9_Black-Carbon-Red.png" alt="Casco AGV Carbon">
+    <div class="product-name">AGV AX9 Carbon Red</div>
+    <div class="price">$9,500 MXN</div>
+    <button class="boton" onclick="comprar('AGV AX9 Carbon Red')">Comprar</button>
+  </div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1615823070591-3e5821b1dc92?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDZ8fG9wZW4lMjBmYWNlJTIwaGVsbWV0fGVufDB8fHx8MTY4ODc3NTk1Mg&ixlib=rb-4.0.3&q=80&w=400" alt="Casco Abierto">
-            <div class="product-name">Casco Abierto</div>
-            <div class="price">$1,850 MXN</div>
-            <button class="boton" onclick="comprar('Casco Abierto')">Comprar</button>
-        </div>
-    </div>
+  <div class="card">
+    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dw31c7edaf/images/large/2/0/2/202100A0I0003_Full_Pista-GP-RR-Soleluna-2022.png" alt="Casco AGV Pista GP RR">
+    <div class="product-name">AGV Pista GP RR Soleluna</div>
+    <div class="price">$23,000 MXN</div>
+    <button class="boton" onclick="comprar('AGV Pista GP RR Soleluna')">Comprar</button>
+  </div>
 
-    <footer>
-        © 2025 Cascos Hats Arivat | ¡Conduce con seguridad y estilo!
-    </footer>
+  <div class="card">
+    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dw7e88f61d/images/large/2/0/2/202100A4MY001_Full_Pista-GP-RR-ECE-DOT-Performance-Carbonskin.png" alt="Casco AGV Carbonskin">
+    <div class="product-name">AGV Pista GP RR Carbon Skin</div>
+    <div class="price">$20,500 MXN</div>
+    <button class="boton" onclick="comprar('AGV Pista GP RR Carbon Skin')">Comprar</button>
+  </div>
 
-    <script>
-        function comprar(casco) {
-            alert("Has seleccionado: " + casco + ". Nuestro equipo se pondrá en contacto para concretar tu compra.");
-        }
-    </script>
+  <div class="card">
+    <img src="https://www.agv.com/dw/image/v2/BJLV_PRD/on/demandware.static/-/Sites-masterCatalog_AGV/default/dw70631e13/images/large/2/0/2/202100A2MY001_Full_Pista-GP-RR-ECE-DOT-Rossi-Mugello-2022.png" alt="Casco AGV Rossi">
+    <div class="product-name">AGV Pista GP RR Rossi Mugello</div>
+    <div class="price">$24,000 MXN</div>
+    <button class="boton" onclick="comprar('AGV Pista GP RR Rossi Mugello')">Comprar</button>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Cascos Hats Arivat | Calidad y seguridad sobre dos ruedas.
+</footer>
+
+<script>
+  function entrar() {
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("tienda").style.display = "flex";
+  }
+
+  function comprar(casco) {
+    alert("Has seleccionado: " + casco + ". Nuestro equipo se pondrá en contacto contigo.");
+  }
+</script>
 
 </body>
 </html>
