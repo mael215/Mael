@@ -8,6 +8,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Roboto', sans-serif; background: #fff; color: #333; }
+
     header {
       background-color: #000;
       color: #fff;
@@ -20,30 +21,39 @@
       top: 0;
       z-index: 1000;
     }
+
     nav {
       background-color: #222;
       padding: 10px 0;
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 40px;
       position: fixed;
       top: 70px;
       width: 100%;
       z-index: 999;
       flex-wrap: wrap;
     }
+
     nav a {
       color: #d4af37;
       text-decoration: none;
       font-size: 18px;
       font-weight: bold;
       transition: color 0.3s;
+      display: none; /* ocultar por defecto */
     }
+
+    nav a.visible {
+      display: inline;
+    }
+
     nav a:hover { color: #bfa230; }
+
     .inicio {
       margin-top: 130px;
       height: calc(100vh - 130px);
-      background: url(534c8e97-a1b3-4a44-aa94-1fd78c9d6427.jpeg) no-repeat center center/cover;
+      background: url('534c8e97-a1b3-4a44-aa94-1fd78c9d6427.jpeg') no-repeat center center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -52,6 +62,7 @@
       text-shadow: 2px 2px 8px black;
       text-align: center;
     }
+
     .boton {
       background-color: #d4af37;
       border: none;
@@ -64,7 +75,9 @@
       margin-top: 20px;
       transition: background-color 0.3s;
     }
+
     .boton:hover { background-color: #bfa230; }
+
     .container {
       margin-top: 180px;
       display: none;
@@ -76,6 +89,7 @@
       opacity: 0;
       transition: opacity 1s;
     }
+
     .card {
       background-color: #fff;
       border-radius: 10px;
@@ -85,15 +99,19 @@
       padding: 20px;
       transition: transform 0.3s;
     }
+
     .card:hover { transform: translateY(-8px); }
+
     .card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 10px;
     }
+
     .product-name { font-size: 20px; margin-top: 15px; font-weight: bold; }
     .price { font-size: 18px; color: #555; margin: 10px 0; }
+
     footer {
       background-color: #000;
       color: white;
@@ -102,18 +120,37 @@
       font-size: 14px;
       margin-top: 50px;
     }
+
     .resumen {
       text-align: center;
       padding: 30px;
       font-size: 18px;
       display: none;
     }
+
+    .seccion {
+      display: none;
+      height: 300px;
+      color: white;
+      font-size: 32px;
+      text-align: center;
+      padding-top: 100px;
+      background-size: cover;
+      background-position: center;
+      text-shadow: 2px 2px 5px black;
+    }
+
+    #accesorios { background-image: url('https://i.ibb.co/hfV6gC6/accesorios-bg.jpg'); }
+    #guantes { background-image: url('https://i.ibb.co/3kL2DbY/guantes-bg.jpg'); }
+    #monotrajes { background-image: url('https://i.ibb.co/d2Ndpbg/monotrajes-bg.jpg'); }
+
     @media (max-width: 768px) {
-      nav { gap: 20px; }
+      nav { gap: 20px; flex-wrap: wrap; }
       .container { flex-direction: column; align-items: center; }
       .card { width: 90%; }
       .inicio { padding: 20px; }
     }
+
     @media (max-width: 480px) {
       header { font-size: 24px; }
       nav a { font-size: 16px; }
@@ -121,23 +158,25 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>Cascos Hats Arivat</header>
 
 <nav>
   <a href="#inicio" onclick="mostrarInicio()">Inicio</a>
-  <a href="#tienda" onclick="mostrarSeccion('tienda')">Cascos</a>
-  <a href="#accesorios" onclick="mostrarSeccion('accesorios')">Accesorios</a>
-  <a href="#guantes" onclick="mostrarSeccion('guantes')">Guantes</a>
-  <a href="#monotrajes" onclick="mostrarSeccion('monotrajes')">Monotrajes</a>
+  <a href="#tienda" class="menu" onclick="mostrarTienda()">Cascos</a>
+  <a href="#accesorios" class="menu" onclick="mostrarSeccion('accesorios')">Accesorios</a>
+  <a href="#guantes" class="menu" onclick="mostrarSeccion('guantes')">Guantes</a>
+  <a href="#monotrajes" class="menu" onclick="mostrarSeccion('monotrajes')">Monotrajes</a>
 </nav>
 
+<!-- Pantalla de bienvenida -->
 <div id="inicio" class="inicio">
-  <button class="boton" onclick="mostrarSeccion('tienda')">Ingresar a la tienda</button>
+  <button class="boton" onclick="mostrarTienda()">Ingresar a la tienda</button>
 </div>
 
-<!-- Cascos -->
+<!-- Tienda -->
 <div id="tienda" class="container">
   <div class="card">
     <img src="https://i.ibb.co/f9RMp4F/agv1.jpg" alt="AGV Pista GP RR Limited">
@@ -163,62 +202,17 @@
     <div class="price">$18,500 MXN</div>
     <button class="boton" onclick="agregarProducto('AGV Sport Modular', 18500)">Agregar</button>
   </div>
-</div>
-
-<!-- Accesorios -->
-<div id="accesorios" class="container">
-  <div class="card">
-    <img src="https://i.ibb.co/nR2S8Jq/intercom.jpg" alt="Intercomunicador Bluetooth">
-    <div class="product-name">Intercomunicador Bluetooth</div>
-    <div class="price">$3,200 MXN</div>
-    <button class="boton" onclick="agregarProducto('Intercomunicador Bluetooth', 3200)">Agregar</button>
-  </div>
-  <div class="card">
-    <img src="https://i.ibb.co/yXxG3gc/visor.jpg" alt="Visor Antiempañante">
-    <div class="product-name">Visor Antiempañante</div>
-    <div class="price">$950 MXN</div>
-    <button class="boton" onclick="agregarProducto('Visor Antiempañante', 950)">Agregar</button>
+  <div style="width:100%; text-align:center; margin-top: 30px;">
+    <button class="boton" onclick="elegirPago()">Finalizar Compra</button>
   </div>
 </div>
 
-<!-- Guantes -->
-<div id="guantes" class="container">
-  <div class="card">
-    <img src="https://i.ibb.co/5c5HfqL/guantes1.jpg" alt="Guantes de Piel Racing">
-    <div class="product-name">Guantes de Piel Racing</div>
-    <div class="price">$1,800 MXN</div>
-    <button class="boton" onclick="agregarProducto('Guantes de Piel Racing', 1800)">Agregar</button>
-  </div>
-  <div class="card">
-    <img src="https://i.ibb.co/Qn3KxdH/guantes2.jpg" alt="Guantes Urbanos de Verano">
-    <div class="product-name">Guantes Urbanos de Verano</div>
-    <div class="price">$950 MXN</div>
-    <button class="boton" onclick="agregarProducto('Guantes Urbanos de Verano', 950)">Agregar</button>
-  </div>
-</div>
+<!-- Otras secciones -->
+<div id="accesorios" class="seccion">Sección Accesorios</div>
+<div id="guantes" class="seccion">Sección Guantes</div>
+<div id="monotrajes" class="seccion">Sección Monotrajes</div>
 
-<!-- Monotrajes -->
-<div id="monotrajes" class="container">
-  <div class="card">
-    <img src="https://i.ibb.co/LpK9bzW/mono1.jpg" alt="Monotraje Dainese Laguna Seca">
-    <div class="product-name">Dainese Laguna Seca</div>
-    <div class="price">$32,000 MXN</div>
-    <button class="boton" onclick="agregarProducto('Dainese Laguna Seca', 32000)">Agregar</button>
-  </div>
-  <div class="card">
-    <img src="https://i.ibb.co/vQWYmf6/mono2.jpg" alt="Alpinestars GP Pro v3">
-    <div class="product-name">Alpinestars GP Pro v3</div>
-    <div class="price">$28,900 MXN</div>
-    <button class="boton" onclick="agregarProducto('Alpinestars GP Pro v3', 28900)">Agregar</button>
-  </div>
-</div>
-
-<!-- Finalizar -->
-<div style="width:100%; text-align:center; margin-top: 30px;">
-  <button class="boton" onclick="elegirPago()">Finalizar Compra</button>
-</div>
-
-<!-- Resumen -->
+<!-- Resumen de compra -->
 <div id="resumen" class="resumen"></div>
 
 <footer>
@@ -228,31 +222,35 @@
 <script>
   let carrito = [];
 
-  function mostrarSeccion(id) {
-    const secciones = ["tienda", "accesorios", "guantes", "monotrajes"];
-    secciones.forEach(sec => {
-      const div = document.getElementById(sec);
-      if (div) {
-        div.style.display = "none";
-        div.style.opacity = "0";
-      }
-    });
+  function mostrarTienda() {
     document.getElementById("inicio").style.display = "none";
-    const activa = document.getElementById(id);
-    activa.style.display = "flex";
-    setTimeout(() => { activa.style.opacity = "1"; }, 100);
+
+    // Mostrar menú extendido
+    document.querySelectorAll('.menu').forEach(el => el.classList.add('visible'));
+
+    // Ocultar otras secciones
+    document.querySelectorAll('.seccion').forEach(sec => sec.style.display = "none");
+    
+    let tienda = document.getElementById("tienda");
+    tienda.style.display = "flex";
+    setTimeout(() => { tienda.style.opacity = "1"; }, 100);
   }
 
   function mostrarInicio() {
-    const secciones = ["tienda", "accesorios", "guantes", "monotrajes"];
-    secciones.forEach(sec => {
-      const div = document.getElementById(sec);
-      if (div) {
-        div.style.opacity = "0";
-        div.style.display = "none";
-      }
-    });
-    document.getElementById("inicio").style.display = "flex";
+    let tienda = document.getElementById("tienda");
+    tienda.style.opacity = "0";
+    setTimeout(() => {
+      tienda.style.display = "none";
+      document.getElementById("inicio").style.display = "flex";
+      document.querySelectorAll('.menu').forEach(el => el.classList.remove('visible'));
+    }, 500);
+  }
+
+  function mostrarSeccion(id) {
+    document.getElementById("tienda").style.display = "none";
+    document.getElementById("resumen").style.display = "none";
+    document.querySelectorAll('.seccion').forEach(sec => sec.style.display = "none");
+    document.getElementById(id).style.display = "block";
   }
 
   function agregarProducto(nombre, precio) {
@@ -262,7 +260,7 @@
 
   function elegirPago() {
     if (carrito.length === 0) {
-      alert("No has seleccionado ningún producto.");
+      alert("No has seleccionado ningún casco.");
       return;
     }
     let metodo = prompt("¿Deseas pagar con Tarjeta o Efectivo? (Escribe tu opción)");
@@ -276,8 +274,8 @@
   }
 
   function mostrarResumen(metodo) {
-    const secciones = ["tienda", "accesorios", "guantes", "monotrajes"];
-    secciones.forEach(sec => document.getElementById(sec).style.display = "none");
+    document.getElementById("tienda").style.display = "none";
+    document.querySelectorAll('.seccion').forEach(sec => sec.style.display = "none");
     let resumen = document.getElementById("resumen");
     let listaProductos = carrito.map(item => "- " + item.nombre).join("<br>");
     let total = carrito.reduce((sum, item) => sum + item.precio, 0);
