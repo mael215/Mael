@@ -25,11 +25,12 @@
       padding: 10px 0;
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 30px;
       position: fixed;
       top: 70px;
       width: 100%;
       z-index: 999;
+      flex-wrap: wrap;
     }
     nav a {
       color: #d4af37;
@@ -107,7 +108,6 @@
       font-size: 18px;
       display: none;
     }
-    /* Responsive */
     @media (max-width: 768px) {
       nav { gap: 20px; }
       .container { flex-direction: column; align-items: center; }
@@ -121,22 +121,23 @@
     }
   </style>
 </head>
-
 <body>
 
 <header>Cascos Hats Arivat</header>
 
 <nav>
   <a href="#inicio" onclick="mostrarInicio()">Inicio</a>
-  <a href="#tienda" onclick="mostrarTienda()">Tienda</a>
+  <a href="#tienda" onclick="mostrarSeccion('tienda')">Cascos</a>
+  <a href="#accesorios" onclick="mostrarSeccion('accesorios')">Accesorios</a>
+  <a href="#guantes" onclick="mostrarSeccion('guantes')">Guantes</a>
+  <a href="#monotrajes" onclick="mostrarSeccion('monotrajes')">Monotrajes</a>
 </nav>
 
-<!-- Pantalla de bienvenida -->
 <div id="inicio" class="inicio">
-  <button class="boton" onclick="mostrarTienda()">Ingresar a la tienda</button>
+  <button class="boton" onclick="mostrarSeccion('tienda')">Ingresar a la tienda</button>
 </div>
 
-<!-- Tienda -->
+<!-- Cascos -->
 <div id="tienda" class="container">
   <div class="card">
     <img src="https://i.ibb.co/f9RMp4F/agv1.jpg" alt="AGV Pista GP RR Limited">
@@ -162,12 +163,62 @@
     <div class="price">$18,500 MXN</div>
     <button class="boton" onclick="agregarProducto('AGV Sport Modular', 18500)">Agregar</button>
   </div>
-  <div style="width:100%; text-align:center; margin-top: 30px;">
-    <button class="boton" onclick="elegirPago()">Finalizar Compra</button>
+</div>
+
+<!-- Accesorios -->
+<div id="accesorios" class="container">
+  <div class="card">
+    <img src="https://i.ibb.co/nR2S8Jq/intercom.jpg" alt="Intercomunicador Bluetooth">
+    <div class="product-name">Intercomunicador Bluetooth</div>
+    <div class="price">$3,200 MXN</div>
+    <button class="boton" onclick="agregarProducto('Intercomunicador Bluetooth', 3200)">Agregar</button>
+  </div>
+  <div class="card">
+    <img src="https://i.ibb.co/yXxG3gc/visor.jpg" alt="Visor Antiempañante">
+    <div class="product-name">Visor Antiempañante</div>
+    <div class="price">$950 MXN</div>
+    <button class="boton" onclick="agregarProducto('Visor Antiempañante', 950)">Agregar</button>
   </div>
 </div>
 
-<!-- Resumen de compra -->
+<!-- Guantes -->
+<div id="guantes" class="container">
+  <div class="card">
+    <img src="https://i.ibb.co/5c5HfqL/guantes1.jpg" alt="Guantes de Piel Racing">
+    <div class="product-name">Guantes de Piel Racing</div>
+    <div class="price">$1,800 MXN</div>
+    <button class="boton" onclick="agregarProducto('Guantes de Piel Racing', 1800)">Agregar</button>
+  </div>
+  <div class="card">
+    <img src="https://i.ibb.co/Qn3KxdH/guantes2.jpg" alt="Guantes Urbanos de Verano">
+    <div class="product-name">Guantes Urbanos de Verano</div>
+    <div class="price">$950 MXN</div>
+    <button class="boton" onclick="agregarProducto('Guantes Urbanos de Verano', 950)">Agregar</button>
+  </div>
+</div>
+
+<!-- Monotrajes -->
+<div id="monotrajes" class="container">
+  <div class="card">
+    <img src="https://i.ibb.co/LpK9bzW/mono1.jpg" alt="Monotraje Dainese Laguna Seca">
+    <div class="product-name">Dainese Laguna Seca</div>
+    <div class="price">$32,000 MXN</div>
+    <button class="boton" onclick="agregarProducto('Dainese Laguna Seca', 32000)">Agregar</button>
+  </div>
+  <div class="card">
+    <img src="https://i.ibb.co/vQWYmf6/mono2.jpg" alt="Alpinestars GP Pro v3">
+    <div class="product-name">Alpinestars GP Pro v3</div>
+    <div class="price">$28,900 MXN</div>
+    <button class="boton" onclick="agregarProducto('Alpinestars GP Pro v3', 28900)">Agregar</button>
+  </div>
+</div>
+
+<!-- Finalizar -->
+<div style="width:100%; text-align:center; margin-top: 30px;">
+  <button class="boton" onclick="elegirPago()">Finalizar Compra</button>
+</div>
+
+<!-- Resumen -->
 <div id="resumen" class="resumen"></div>
 
 <footer>
@@ -177,20 +228,31 @@
 <script>
   let carrito = [];
 
-  function mostrarTienda() {
+  function mostrarSeccion(id) {
+    const secciones = ["tienda", "accesorios", "guantes", "monotrajes"];
+    secciones.forEach(sec => {
+      const div = document.getElementById(sec);
+      if (div) {
+        div.style.display = "none";
+        div.style.opacity = "0";
+      }
+    });
     document.getElementById("inicio").style.display = "none";
-    let tienda = document.getElementById("tienda");
-    tienda.style.display = "flex";
-    setTimeout(() => { tienda.style.opacity = "1"; }, 100);
+    const activa = document.getElementById(id);
+    activa.style.display = "flex";
+    setTimeout(() => { activa.style.opacity = "1"; }, 100);
   }
 
   function mostrarInicio() {
-    let tienda = document.getElementById("tienda");
-    tienda.style.opacity = "0";
-    setTimeout(() => {
-      tienda.style.display = "none";
-      document.getElementById("inicio").style.display = "flex";
-    }, 500);
+    const secciones = ["tienda", "accesorios", "guantes", "monotrajes"];
+    secciones.forEach(sec => {
+      const div = document.getElementById(sec);
+      if (div) {
+        div.style.opacity = "0";
+        div.style.display = "none";
+      }
+    });
+    document.getElementById("inicio").style.display = "flex";
   }
 
   function agregarProducto(nombre, precio) {
@@ -200,7 +262,7 @@
 
   function elegirPago() {
     if (carrito.length === 0) {
-      alert("No has seleccionado ningún casco.");
+      alert("No has seleccionado ningún producto.");
       return;
     }
     let metodo = prompt("¿Deseas pagar con Tarjeta o Efectivo? (Escribe tu opción)");
@@ -214,7 +276,8 @@
   }
 
   function mostrarResumen(metodo) {
-    document.getElementById("tienda").style.display = "none";
+    const secciones = ["tienda", "accesorios", "guantes", "monotrajes"];
+    secciones.forEach(sec => document.getElementById(sec).style.display = "none");
     let resumen = document.getElementById("resumen");
     let listaProductos = carrito.map(item => "- " + item.nombre).join("<br>");
     let total = carrito.reduce((sum, item) => sum + item.precio, 0);
