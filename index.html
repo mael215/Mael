@@ -41,7 +41,7 @@
       font-size: 18px;
       font-weight: bold;
       transition: color 0.3s;
-      display: none; /* ocultar por defecto */
+      display: none;
     }
 
     nav a.visible {
@@ -128,22 +128,6 @@
       display: none;
     }
 
-    .seccion {
-      display: none;
-      height: 300px;
-      color: white;
-      font-size: 32px;
-      text-align: center;
-      padding-top: 100px;
-      background-size: cover;
-      background-position: center;
-      text-shadow: 2px 2px 5px black;
-    }
-
-    #accesorios { background-image: url('1abce06f-4272-40c6-8cc4-a3e851c17242.jpeg'); }
-    #guantes { background-image: url('https://i.ibb.co/3kL2DbY/guantes-bg.jpg'); }
-    #monotrajes { background-image: url('https://i.ibb.co/d2Ndpbg/monotrajes-bg.jpg'); }
-
     @media (max-width: 768px) {
       nav { gap: 20px; flex-wrap: wrap; }
       .container { flex-direction: column; align-items: center; }
@@ -171,7 +155,6 @@
   <a href="#monotrajes" class="menu" onclick="mostrarSeccion('monotrajes')">Monotrajes</a>
 </nav>
 
-<!-- Pantalla de bienvenida -->
 <div id="inicio" class="inicio">
   <button class="boton" onclick="mostrarTienda()">Ingresar a la tienda</button>
 </div>
@@ -207,50 +190,56 @@
   </div>
 </div>
 
-<!-- Otras secciones -->
-<div id="accesorios" class="seccion">Sección Accesorios</div>
-<div id="guantes" class="seccion">Sección Guantes</div>
-<div id="monotrajes" class="seccion">Sección Monotrajes</div>
+<!-- Accesorios -->
+<div id="accesorios" class="container">
+  <div class="card"><img src="https://i.ibb.co/Ybq1Jjp/accesorio1.jpg" alt="Visor Iridium"><div class="product-name">Visor Iridium</div><div class="price">$1,200 MXN</div><button class="boton" onclick="agregarProducto('Visor Iridium', 1200)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/vJyphsy/accesorio2.jpg" alt="Bolsa para casco"><div class="product-name">Bolsa para casco</div><div class="price">$650 MXN</div><button class="boton" onclick="agregarProducto('Bolsa para casco', 650)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/6bPnQLx/accesorio3.jpg" alt="Pinlock antivaho"><div class="product-name">Pinlock antivaho</div><div class="price">$800 MXN</div><button class="boton" onclick="agregarProducto('Pinlock antivaho', 800)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/2cKbgyF/accesorio4.jpg" alt="Soporte GoPro para casco"><div class="product-name">Soporte GoPro para casco</div><div class="price">$300 MXN</div><button class="boton" onclick="agregarProducto('Soporte GoPro para casco', 300)">Agregar</button></div>
+</div>
 
-<!-- Resumen de compra -->
+<!-- Guantes -->
+<div id="guantes" class="container">
+  <div class="card"><img src="https://i.ibb.co/vDC3YkT/guante1.jpg" alt="Guantes Racing Pro"><div class="product-name">Guantes Racing Pro</div><div class="price">$2,500 MXN</div><button class="boton" onclick="agregarProducto('Guantes Racing Pro', 2500)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/vmPDP9n/guante2.jpg" alt="Guantes Urbanos Verano"><div class="product-name">Guantes Urbanos Verano</div><div class="price">$950 MXN</div><button class="boton" onclick="agregarProducto('Guantes Urbanos Verano', 950)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/WxLg5rB/guante3.jpg" alt="Guantes Invierno Térmicos"><div class="product-name">Guantes Invierno Térmicos</div><div class="price">$1,300 MXN</div><button class="boton" onclick="agregarProducto('Guantes Invierno Térmicos', 1300)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/zsZ2Rzg/guante4.jpg" alt="Guantes Cortos"><div class="product-name">Guantes Cortos</div><div class="price">$700 MXN</div><button class="boton" onclick="agregarProducto('Guantes Cortos', 700)">Agregar</button></div>
+</div>
+
+<!-- Monotrajes -->
+<div id="monotrajes" class="container">
+  <div class="card"><img src="https://i.ibb.co/qF0gJXy/mono1.jpg" alt="Monotraje Dainese Laguna Seca"><div class="product-name">Dainese Laguna Seca</div><div class="price">$28,000 MXN</div><button class="boton" onclick="agregarProducto('Dainese Laguna Seca', 28000)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/ZVjzmbG/mono2.jpg" alt="Alpinestars GP Tech"><div class="product-name">Alpinestars GP Tech</div><div class="price">$32,000 MXN</div><button class="boton" onclick="agregarProducto('Alpinestars GP Tech', 32000)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/fpXQFk2/mono3.jpg" alt="REVIT Triton"><div class="product-name">REV'IT! Triton</div><div class="price">$24,500 MXN</div><button class="boton" onclick="agregarProducto('REVIT Triton', 24500)">Agregar</button></div>
+  <div class="card"><img src="https://i.ibb.co/02F4GVm/mono4.jpg" alt="IXON Vortex 2"><div class="product-name">IXON Vortex 2</div><div class="price">$21,000 MXN</div><button class="boton" onclick="agregarProducto('IXON Vortex 2', 21000)">Agregar</button></div>
+</div>
+
+<!-- Resumen -->
 <div id="resumen" class="resumen"></div>
 
-<footer>
-  © 2025 Cascos Hats Arivat | Seguridad, lujo y rendimiento.
-</footer>
+<footer>© 2025 Cascos Hats Arivat | Seguridad, lujo y rendimiento.</footer>
 
 <script>
   let carrito = [];
 
   function mostrarTienda() {
     document.getElementById("inicio").style.display = "none";
-
-    // Mostrar menú extendido
     document.querySelectorAll('.menu').forEach(el => el.classList.add('visible'));
-
-    // Ocultar otras secciones
-    document.querySelectorAll('.seccion').forEach(sec => sec.style.display = "none");
-    
-    let tienda = document.getElementById("tienda");
-    tienda.style.display = "flex";
-    setTimeout(() => { tienda.style.opacity = "1"; }, 100);
+    document.querySelectorAll('.container').forEach(sec => sec.style.display = "none");
+    document.getElementById("tienda").style.display = "flex";
+    setTimeout(() => { document.getElementById("tienda").style.opacity = "1"; }, 100);
   }
 
   function mostrarInicio() {
-    let tienda = document.getElementById("tienda");
-    tienda.style.opacity = "0";
-    setTimeout(() => {
-      tienda.style.display = "none";
-      document.getElementById("inicio").style.display = "flex";
-      document.querySelectorAll('.menu').forEach(el => el.classList.remove('visible'));
-    }, 500);
+    document.querySelectorAll('.container').forEach(sec => sec.style.display = "none");
+    document.getElementById("inicio").style.display = "flex";
+    document.querySelectorAll('.menu').forEach(el => el.classList.remove('visible'));
   }
 
   function mostrarSeccion(id) {
-    document.getElementById("tienda").style.display = "none";
-    document.getElementById("resumen").style.display = "none";
-    document.querySelectorAll('.seccion').forEach(sec => sec.style.display = "none");
-    document.getElementById(id).style.display = "block";
+    document.querySelectorAll('.container').forEach(sec => sec.style.display = "none");
+    document.getElementById(id).style.display = "flex";
+    setTimeout(() => { document.getElementById(id).style.opacity = "1"; }, 100);
   }
 
   function agregarProducto(nombre, precio) {
@@ -260,7 +249,7 @@
 
   function elegirPago() {
     if (carrito.length === 0) {
-      alert("No has seleccionado ningún casco.");
+      alert("No has seleccionado ningún producto.");
       return;
     }
     let metodo = prompt("¿Deseas pagar con Tarjeta o Efectivo? (Escribe tu opción)");
@@ -274,8 +263,7 @@
   }
 
   function mostrarResumen(metodo) {
-    document.getElementById("tienda").style.display = "none";
-    document.querySelectorAll('.seccion').forEach(sec => sec.style.display = "none");
+    document.querySelectorAll('.container').forEach(sec => sec.style.display = "none");
     let resumen = document.getElementById("resumen");
     let listaProductos = carrito.map(item => "- " + item.nombre).join("<br>");
     let total = carrito.reduce((sum, item) => sum + item.precio, 0);
