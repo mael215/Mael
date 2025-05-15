@@ -443,7 +443,7 @@
 
     function elegirPago() {
       if (carrito.length === 0) {
-        alert('No has agregado productos al carrito.');
+        alert('No has agregado productos al carrito.echale algo rey');
         return;
       }
       let metodo = prompt(
@@ -456,7 +456,7 @@
       } else if (metodo === '3') {
         mostrarResumen('Pago en tienda');
       } else {
-        alert('Método de pago no válido.');
+        alert('pon un metodo valido padre seleciona del 1 al 3.');
       }
     }
 
@@ -479,10 +479,10 @@
       // Encuesta de calificación después de mostrar resumen
       setTimeout(() => {
         let calificacion = prompt(
-          '¿Cómo calificarías tu experiencia de compra del 1 al 10?'
+          '¿Quedo bella la pagina y que calif le da del 1 al 10?'
         );
         if (calificacion !== null) {
-          alert('¡Gracias por tu calificación de ' + calificacion + '!');
+          alert('Gracias verificaremos su calif de ' + calificacion + '!');
         }
       }, 500);
     }
@@ -490,7 +490,7 @@
     // Función para mostrar productos agregados al carrito
     function verCarrito() {
       if (carrito.length === 0) {
-        alert('Tu carrito está vacío.');
+        alert('Tu carrito está vacío echale un casquito.');
         return;
       }
       let lista = carrito
