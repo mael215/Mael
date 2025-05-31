@@ -154,6 +154,72 @@
       display: none;
     }
 
+    /* Nueva sección Quejas y Sugerencias */
+    #quejas {
+      margin-top: 180px;
+      display: none;
+      padding: 30px;
+      background-color: #f9f9f9;
+      opacity: 0;
+      transition: opacity 1s;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    #quejas h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #222;
+    }
+    #quejas form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #quejas label {
+      font-weight: 500;
+      color: #333;
+    }
+    #quejas input[type="text"],
+    #quejas input[type="email"],
+    #quejas textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+    #quejas textarea {
+      min-height: 100px;
+    }
+    #quejas button {
+      align-self: center;
+      background-color: #d4af37;
+      border: none;
+      color: #000;
+      padding: 12px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #quejas button:hover {
+      background-color: #bfa230;
+    }
+    #contacto-info {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+    }
+    #contacto-info p {
+      margin: 5px 0;
+    }
+
     @media (max-width: 768px) {
       nav {
         gap: 20px;
@@ -168,6 +234,9 @@
       }
       .inicio {
         padding: 20px;
+      }
+      #quejas {
+        width: 90%;
       }
     }
 
@@ -196,12 +265,10 @@
       >Accesorios</a
     >
     <a href="#guantes" class="menu" onclick="mostrarSeccion('guantes')">Guantes</a>
-    <a
-      href="#monotrajes"
-      class="menu"
-      onclick="mostrarSeccion('monotrajes')"
+    <a href="#monotrajes" class="menu" onclick="mostrarSeccion('monotrajes')"
       >Monotrajes</a
     >
+    <a href="#quejas" class="menu" onclick="mostrarSeccion('quejas')">Quejas y Sugerencias</a>
   </nav>
 
   <div id="inicio" class="inicio">
@@ -247,52 +314,36 @@
       </button>
     </div>
     <div class="card">
-      <img src="43574f41-e282-4e78-aceb-b9c5a1c2191f.jpeg" alt="AGV Sport Modular" />
-      <div class="product-name">AGV Sport Modular</div>
-      <div class="price">$18,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('AGV Sport Modular', 18500)">
-        Agregar
-      </button>
-    </div>
-    <div style="width: 100%; text-align: center; margin-top: 30px">
-      <button class="boton" onclick="elegirPago()">Finalizar Compra</button>
+      <img src="43574f41-e282-4e78-aceb-b9c5f9adcb99.jpeg" alt="AGV K6" />
+      <div class="product-name">AGV K6</div>
+      <div class="price">$13,500 MXN</div>
+      <button class="boton" onclick="agregarProducto('AGV K6', 13500)">Agregar</button>
     </div>
   </div>
 
   <!-- Accesorios -->
   <div id="accesorios" class="container">
     <div class="card">
-      <img src="https://i.ibb.co/Ybq1Jjp/accesorio1.jpg" alt="Visor Iridium" />
-      <div class="product-name">Visor Iridium</div>
-      <div class="price">$1,200 MXN</div>
-      <button class="boton" onclick="agregarProducto('Visor Iridium', 1200)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/vJyphsy/accesorio2.jpg" alt="Bolsa para casco" />
-      <div class="product-name">Bolsa para casco</div>
+      <img src="4bfa0bf0-2d5f-4141-b7a1-2e379836b8b9.jpeg" alt="Visera Ahumada" />
+      <div class="product-name">Visera Ahumada</div>
       <div class="price">$650 MXN</div>
-      <button class="boton" onclick="agregarProducto('Bolsa para casco', 650)">
+      <button class="boton" onclick="agregarProducto('Visera Ahumada', 650)">
         Agregar
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/6bPnQLx/accesorio3.jpg" alt="Pinlock antivaho" />
-      <div class="product-name">Pinlock antivaho</div>
-      <div class="price">$800 MXN</div>
-      <button class="boton" onclick="agregarProducto('Pinlock antivaho', 800)">
+      <img src="41ad4a39-6289-4f6d-9b94-03137dfb0cd7.jpeg" alt="Cubre Cuello" />
+      <div class="product-name">Cubre Cuello</div>
+      <div class="price">$400 MXN</div>
+      <button class="boton" onclick="agregarProducto('Cubre Cuello', 400)">
         Agregar
       </button>
     </div>
     <div class="card">
-      <img
-        src="https://i.ibb.co/2cKbgyF/accesorio4.jpg"
-        alt="Soporte GoPro para casco"
-      />
-      <div class="product-name">Soporte GoPro para casco</div>
+      <img src="cd54610b-748a-400e-b0e6-7159695ff8eb.jpeg" alt="Protector Auditivo" />
+      <div class="product-name">Protector Auditivo</div>
       <div class="price">$300 MXN</div>
-      <button class="boton" onclick="agregarProducto('Soporte GoPro para casco', 300)">
+      <button class="boton" onclick="agregarProducto('Protector Auditivo', 300)">
         Agregar
       </button>
     </div>
@@ -301,34 +352,18 @@
   <!-- Guantes -->
   <div id="guantes" class="container">
     <div class="card">
-      <img src="https://i.ibb.co/vDC3YkT/guante1.jpg" alt="Guantes Racing Pro" />
-      <div class="product-name">Guantes Racing Pro</div>
-      <div class="price">$2,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Racing Pro', 2500)">
+      <img src="8a52ee82-7992-4e2d-9636-46c98e18e3d6.jpeg" alt="Guantes Racing" />
+      <div class="product-name">Guantes Racing</div>
+      <div class="price">$900 MXN</div>
+      <button class="boton" onclick="agregarProducto('Guantes Racing', 900)">
         Agregar
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/vmPDP9n/guante2.jpg" alt="Guantes Urbanos Verano" />
-      <div class="product-name">Guantes Urbanos Verano</div>
-      <div class="price">$950 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Urbanos Verano', 950)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/WxLg5rB/guante3.jpg" alt="Guantes Invierno Térmicos" />
-      <div class="product-name">Guantes Invierno Térmicos</div>
-      <div class="price">$1,300 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Invierno Térmicos', 1300)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/zsZ2Rzg/guante4.jpg" alt="Guantes Cortos" />
-      <div class="product-name">Guantes Cortos</div>
+      <img src="52282a46-f7ca-429b-9e23-10541e5488c9.jpeg" alt="Guantes Urbanos" />
+      <div class="product-name">Guantes Urbanos</div>
       <div class="price">$700 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Cortos', 700)">
+      <button class="boton" onclick="agregarProducto('Guantes Urbanos', 700)">
         Agregar
       </button>
     </div>
@@ -337,131 +372,195 @@
   <!-- Monotrajes -->
   <div id="monotrajes" class="container">
     <div class="card">
-      <img src="https://i.ibb.co/qF0gJXy/mono1.jpg" alt="Monotraje Dainese Laguna Seca" />
-      <div class="product-name">Dainese Laguna Seca</div>
-      <div class="price">$28,000 MXN</div>
-      <button class="boton" onclick="agregarProducto('Dainese Laguna Seca', 28000)">
+      <img src="ad95de0b-0960-4d81-93b3-31177b9a8c0d.jpeg" alt="Monotraje Racing" />
+      <div class="product-name">Monotraje Racing</div>
+      <div class="price">$4,500 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Racing', 4500)">
         Agregar
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/CMWh2nX/mono2.jpg" alt="Monotraje Alpinestars GP Pro" />
-      <div class="product-name">Alpinestars GP Pro</div>
-      <div class="price">$25,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Alpinestars GP Pro', 25500)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/R39HTVs/mono3.jpg" alt="Monotraje Rev’It! Ignition" />
-      <div class="product-name">Rev’It! Ignition</div>
-      <div class="price">$22,700 MXN</div>
-      <button class="boton" onclick="agregarProducto('Rev’It! Ignition', 22700)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/5k2RfS9/mono4.jpg" alt="Monotraje Spidi Track Wind" />
-      <div class="product-name">Spidi Track Wind</div>
-      <div class="price">$20,900 MXN</div>
-      <button class="boton" onclick="agregarProducto('Spidi Track Wind', 20900)">
+      <img src="7f645b26-f6f3-44b0-8051-7bdbb6f73e93.jpeg" alt="Monotraje Urbano" />
+      <div class="product-name">Monotraje Urbano</div>
+      <div class="price">$3,800 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Urbano', 3800)">
         Agregar
       </button>
     </div>
   </div>
 
-  <div id="resumen" class="resumen"></div>
+  <!-- Resumen Carrito -->
+  <div id="resumen" class="resumen">
+    <h2>Resumen de tu compra</h2>
+    <div id="lista-productos"></div>
+    <p id="total">Total: $0 MXN</p>
+    <button class="boton" onclick="finalizarCompra()">Finalizar Compra</button>
+  </div>
+
+  <!-- Quejas y Sugerencias -->
+  <div id="quejas">
+    <h2>Quejas y Sugerencias</h2>
+    <form id="form-quejas" onsubmit="enviarQueja(event)">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="contacto-info">
+      <p><strong>Correo:</strong> maelarivat@gmail.com</p>
+      <p><strong>Teléfono:</strong> +52 55 1234 5678</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Cascos Hats Arivat - Todos los derechos reservados.
+  </footer>
 
   <script>
-    const carrito = [];
+    // Variables para manejar secciones
+    const inicio = document.getElementById("inicio");
+    const tienda = document.getElementById("tienda");
+    const accesorios = document.getElementById("accesorios");
+    const guantes = document.getElementById("guantes");
+    const monotrajes = document.getElementById("monotrajes");
+    const resumen = document.getElementById("resumen");
+    const quejas = document.getElementById("quejas");
 
-    function mostrarInicio() {
-      ocultarContenedores();
-      document.getElementById("inicio").style.display = "flex";
-      document.getElementById("inicio").style.opacity = "1";
-      mostrarMenu(false);
-    }
+    const linksMenu = document.querySelectorAll("nav a.menu");
 
-    function mostrarTienda() {
-      ocultarContenedores();
-      document.getElementById("tienda").style.display = "flex";
-      document.getElementById("tienda").style.opacity = "1";
-      mostrarMenu(true);
-    }
-
+    // Mostrar solo una sección y ocultar las demás
     function mostrarSeccion(seccion) {
-      ocultarContenedores();
-      document.getElementById(seccion).style.display = "flex";
-      document.getElementById(seccion).style.opacity = "1";
-      mostrarMenu(true);
-    }
-
-    function ocultarContenedores() {
-      const contenedores = document.querySelectorAll(".container, .inicio");
-      contenedores.forEach((c) => {
-        c.style.display = "none";
-        c.style.opacity = "0";
-      });
-      document.getElementById("resumen").style.display = "none";
-    }
-
-    function mostrarMenu(mostrar) {
-      const enlaces = document.querySelectorAll("nav a.menu");
-      enlaces.forEach((enlace) => {
-        if (mostrar) {
-          enlace.classList.add("visible");
-        } else {
-          enlace.classList.remove("visible");
+      // Ocultar todas
+      [inicio, tienda, accesorios, guantes, monotrajes, resumen, quejas].forEach(
+        (secc) => {
+          secc.style.display = "none";
+          secc.style.opacity = 0;
         }
-      });
+      );
+
+      // Mostrar la seleccionada
+      switch (seccion) {
+        case "tienda":
+          tienda.style.display = "flex";
+          setTimeout(() => (tienda.style.opacity = 1), 50);
+          break;
+        case "accesorios":
+          accesorios.style.display = "flex";
+          setTimeout(() => (accesorios.style.opacity = 1), 50);
+          break;
+        case "guantes":
+          guantes.style.display = "flex";
+          setTimeout(() => (guantes.style.opacity = 1), 50);
+          break;
+        case "monotrajes":
+          monotrajes.style.display = "flex";
+          setTimeout(() => (monotrajes.style.opacity = 1), 50);
+          break;
+        case "resumen":
+          resumen.style.display = "block";
+          setTimeout(() => (resumen.style.opacity = 1), 50);
+          break;
+        case "quejas":
+          quejas.style.display = "block";
+          setTimeout(() => (quejas.style.opacity = 1), 50);
+          break;
+        default:
+          inicio.style.display = "flex";
+          setTimeout(() => (inicio.style.opacity = 1), 50);
+      }
     }
+
+    // Mostrar tienda desde inicio
+    function mostrarTienda() {
+      mostrarSeccion("tienda");
+    }
+
+    // Mostrar inicio
+    function mostrarInicio() {
+      mostrarSeccion("inicio");
+    }
+
+    // Carrito de compras
+    let carrito = [];
 
     function agregarProducto(nombre, precio) {
       carrito.push({ nombre, precio });
-      alert(`Agregaste "${nombre}" al carrito.`);
+      alert(nombre + " agregado al carrito.");
     }
 
-    function elegirPago() {
+    function mostrarCarrito() {
+      mostrarSeccion("resumen");
+      const listaProductos = document.getElementById("lista-productos");
+      const total = document.getElementById("total");
+
+      listaProductos.innerHTML = "";
+      let suma = 0;
+      carrito.forEach((producto, index) => {
+        listaProductos.innerHTML +=
+          `<p>${producto.nombre} - $${producto.precio.toLocaleString()} MXN</p>`;
+        suma += producto.precio;
+      });
+      total.textContent = "Total: $" + suma.toLocaleString() + " MXN";
+    }
+
+    // Mostrar carrito al hacer click en "Ver carrito"
+    const verCarritoBtn = document.createElement("button");
+    verCarritoBtn.textContent = "Ver carrito";
+    verCarritoBtn.className = "boton";
+    verCarritoBtn.style.position = "fixed";
+    verCarritoBtn.style.bottom = "20px";
+    verCarritoBtn.style.right = "20px";
+    verCarritoBtn.style.zIndex = "10000";
+    document.body.appendChild(verCarritoBtn);
+    verCarritoBtn.addEventListener("click", mostrarCarrito);
+
+    // Finalizar compra
+    function finalizarCompra() {
       if (carrito.length === 0) {
-        alert("No has agregado productos al carrito.");
+        alert("Tu carrito está vacío.");
         return;
       }
-      let metodo = prompt("¿Cómo deseas pagar?\n1. Tarjeta\n2. Efectivo");
-      if (metodo === "1") {
-        mostrarResumen("Tarjeta");
-      } else if (metodo === "2") {
-        mostrarResumen("Efectivo");
-      } else {
-        alert("Método de pago no válido.");
+      alert("Compra finalizada. ¡Gracias por tu preferencia!");
+      carrito = [];
+      mostrarInicio();
+    }
+
+    // Enviar queja o sugerencia
+    function enviarQueja(event) {
+      event.preventDefault();
+      const nombre = document.getElementById("nombre").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const mensaje = document.getElementById("mensaje").value.trim();
+
+      if (!nombre || !email || !mensaje) {
+        alert("Por favor completa todos los campos.");
+        return;
       }
+
+      alert(
+        "Gracias, " +
+          nombre +
+          ". Tu queja o sugerencia ha sido enviada.\nNos pondremos en contacto vía correo."
+      );
+      document.getElementById("form-quejas").reset();
+      mostrarInicio();
     }
 
-    function mostrarResumen(metodoPago) {
-      ocultarContenedores();
-      const resumen = document.getElementById("resumen");
-      resumen.style.display = "block";
-      let texto = `<h2>Resumen de Compra</h2><ul>`;
-      let total = 0;
-      carrito.forEach((producto) => {
-        texto += `<li>${producto.nombre} - $${producto.precio.toLocaleString(
-          "es-MX"
-        )} MXN</li>`;
-        total += producto.precio;
+    // Al cargar la página mostrar solo inicio
+    window.onload = () => {
+      mostrarInicio();
+
+      // Mostrar los enlaces del menú tras carga
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.classList.add("visible");
       });
-      texto += `</ul>`;
-      texto += `<p><strong>Total:</strong> $${total.toLocaleString(
-        "es-MX"
-      )} MXN</p>`;
-      texto += `<p><strong>Método de pago:</strong> ${metodoPago}</p>`;
-      texto += `<p>Gracias por tu compra.</p>`;
-      resumen.innerHTML = texto;
-
-      carrito.length = 0; // Vaciar carrito tras compra
-    }
-
-    // Iniciar en pantalla inicio
-    mostrarInicio();
+    };
   </script>
-  <footer>© 2025 Cascos Hats Arivat</footer>
 </body>
 </html>
