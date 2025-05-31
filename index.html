@@ -3,604 +3,514 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cascos Hats Arivat</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <title>Cascos Hats Arivat - Tienda Completa</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Roboto', sans-serif;
-      background: #fff;
-      color: #333;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f5f5f5;
     }
-
     header {
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav {
       background-color: #222;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      position: fixed;
-      top: 70px;
-      width: 100%;
-      z-index: 999;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #d4af37;
-      text-decoration: none;
-      font-size: 18px;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 2em;
       font-weight: bold;
+    }
+    nav {
+      background-color: #444;
+      padding: 12px 0;
+      text-align: center;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 1.1em;
       transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00aaff;
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      background-color: white;
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    .hidden {
       display: none;
     }
-
-    nav a.visible {
-      display: inline;
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
     }
-
-    nav a:hover {
-      color: #bfa230;
-    }
-
-    .inicio {
-      margin-top: 130px;
-      height: calc(100vh - 130px);
-      background: url('534c8e97-a1b3-4a44-aa94-1fd78c9d6427.jpeg')
-        no-repeat center center/cover;
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      width: 230px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 2px 2px 8px black;
-      text-align: center;
+      justify-content: space-between;
     }
-
-    .boton {
-      background-color: #d4af37;
-      border: none;
-      color: #000;
-      padding: 15px 30px;
-      font-size: 20px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: background-color 0.3s;
-    }
-
-    .boton:hover {
-      background-color: #bfa230;
-    }
-
-    .container {
-      margin-top: 180px;
-      display: none;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 30px;
-      background-color: #f9f9f9;
-      opacity: 0;
-      transition: opacity 1s;
-    }
-
-    .card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      width: 280px;
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
     .card img {
       width: 100%;
-      height: 200px;
+      height: 160px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
       object-fit: cover;
-      border-radius: 10px;
     }
-
-    .product-name {
-      font-size: 20px;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .price {
-      font-size: 18px;
-      color: #555;
-      margin: 10px 0;
-    }
-
-    footer {
-      background-color: #000;
-      color: white;
-      text-align: center;
+    .card .info {
       padding: 15px;
-      font-size: 14px;
-      margin-top: 50px;
-    }
-
-    .resumen {
-      text-align: center;
-      padding: 30px;
-      font-size: 18px;
-      display: none;
-    }
-
-    .resumen h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #d4af37;
-    }
-
-    .resumen em {
-      color: #777;
-    }
-
-    /* Nuevo estilo para texto de cascos */
-    .casco-texto {
-      width: 100%;
-      text-align: center;
-      font-size: 20px;
-      font-weight: 600;
-      color: #d4af37;
-      margin: 15px 0 30px;
-    }
-
-    /* Estilo para sección Quejas y Sugerencias */
-    #quejas {
-      flex-direction: column;
-      max-width: 600px;
-      margin: 0 auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    #quejas h2 {
-      color: #d4af37;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    #quejas form {
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      justify-content: space-between;
+    }
+    .product-name {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      min-height: 48px;
+    }
+    .price {
+      color: #333;
+      font-size: 1em;
+      margin-bottom: 15px;
+    }
+    button.boton {
+      background-color: #007acc;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 0;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 0 0 6px 6px;
+      transition: background-color 0.3s;
+    }
+    button.boton:hover {
+      background-color: #005f99;
+    }
+    #vercarrito {
+      text-align: center;
+    }
+    #lista-carrito {
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: left;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 15px;
+      background-color: #fafafa;
+      min-height: 120px;
+    }
+    #lista-carrito p {
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
+    #total {
+      font-weight: bold;
+      font-size: 1.3em;
+      margin-top: 15px;
+    }
+    #finalizarCompraBtn {
+      margin-top: 25px;
+      width: 220px;
+    }
+    #resumen {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 25px;
+      background: #eef6fc;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,123,255,0.2);
+    }
+    #resumen h2 {
+      margin-bottom: 15px;
+      color: #007acc;
+    }
+    #resumen ul {
+      padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    #resumen ul li {
+      font-size: 1.1em;
+      margin-bottom: 6px;
+    }
+    #resumen p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    #resumen input[type="number"] {
+      width: 60px;
+      font-size: 1em;
+      padding: 5px;
+      margin-right: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    #quejas form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
     }
     #quejas label {
-      font-weight: 500;
-      color: #333;
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+      font-size: 1.1em;
     }
-    #quejas input,
+    #quejas input[type="text"],
+    #quejas input[type="email"],
     #quejas textarea {
+      width: 100%;
       padding: 10px;
-      border-radius: 6px;
+      margin-top: 6px;
+      font-size: 1em;
       border: 1px solid #ccc;
-      font-size: 16px;
+      border-radius: 6px;
       resize: vertical;
     }
-    #quejas button {
-      align-self: center;
+    #quejas textarea {
+      min-height: 120px;
+    }
+    #quejas button.boton {
+      margin-top: 20px;
       width: 150px;
+      font-weight: bold;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    #quejas button.boton:hover {
+      background-color: #005f99;
     }
     #contacto {
-      margin-top: 25px;
-      text-align: center;
-      font-size: 16px;
+      max-width: 600px;
+      margin: 30px auto 0;
+      background-color: #f0f8ff;
+      border-radius: 6px;
+      padding: 15px 20px;
+      font-size: 1em;
       color: #444;
-      line-height: 1.6;
+      box-shadow: 0 0 8px rgba(0,123,255,0.1);
+      text-align: center;
+    }
+    #contacto p, #contacto a {
+      margin: 8px 0;
     }
     #contacto a {
-      color: #d4af37;
+      color: #007acc;
       text-decoration: none;
       font-weight: bold;
     }
     #contacto a:hover {
       text-decoration: underline;
     }
-
-    @media (max-width: 768px) {
-      nav {
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .card {
-        width: 90%;
-      }
-      .inicio {
-        padding: 20px;
-      }
-      #quejas {
-        max-width: 90%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header {
-        font-size: 24px;
-      }
-      nav a {
-        font-size: 16px;
-      }
-      .boton {
-        padding: 12px 25px;
-        font-size: 18px;
-      }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+      font-size: 0.9em;
     }
   </style>
 </head>
-
 <body>
-  <header>Cascos Hats Arivat</header>
 
-  <nav>
-    <a href="#inicio" onclick="mostrarInicio()">Inicio</a>
-    <a href="#tienda" class="menu" onclick="mostrarTienda()">Cascos</a>
-    <a href="#accesorios" class="menu" onclick="mostrarSeccion('accesorios')"
-      >Accesorios</a
-    >
-    <a href="#guantes" class="menu" onclick="mostrarSeccion('guantes')">Guantes</a>
-    <a href="#monotrajes" class="menu" onclick="mostrarSeccion('monotrajes')"
-      >Monotrajes</a
-    >
-    <a href="#vercarrito" class="menu" onclick="verCarrito()">Ver Carrito</a>
-    <a href="#quejas" class="menu" onclick="mostrarSeccion('quejas')">Quejas y Sugerencias</a>
-  </nav>
+<header>
+  Cascos Hats Arivat
+</header>
 
-  <div id="inicio" class="inicio">
-    <button class="boton" onclick="mostrarTienda()">Ingresar a la tienda</button>
-  </div>
+<nav>
+  <a onclick="mostrarSeccion('inicio')">Inicio</a>
+  <a onclick="mostrarSeccion('tienda')">Tienda</a>
+  <a onclick="mostrarSeccion('accesorios')">Accesorios</a>
+  <a onclick="mostrarSeccion('guantes')">Guantes</a>
+  <a onclick="mostrarSeccion('monotrajes')">Monotrajes</a>
+  <a onclick="mostrarSeccion('vercarrito')">Carrito</a>
+  <a onclick="mostrarSeccion('quejas')">Quejas y Sugerencias</a>
+</nav>
 
-  <!-- Tienda -->
-  <div id="tienda" class="container" style="flex-direction: column; align-items: center;">
-    <div class="casco-texto">Somos tu mejor opción 100% garantizado</div>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; width: 100%;">
-      <div class="card">
-        <img
-          src="41b521ba-4a2a-408e-871c-589833b2a2fb.jpeg"
-          alt="AGV Pista GP RR Limited"
-        />
-        <div class="product-name">AGV Pista GP RR Limited</div>
-        <div class="price">$23,500 MXN</div>
-        <button
-          class="boton"
-          onclick="agregarProducto('AGV Pista GP RR Limited', 23500)"
-        >
-          Agregar
-        </button>
+<section id="inicio" class="container">
+  <h2>Bienvenido a Cascos Hats Arivat</h2>
+  <p style="font-size:1.2em; text-align:center; max-width:600px; margin: 20px auto;">
+    Explora nuestra tienda y encuentra los mejores cascos y accesorios para tu seguridad y estilo.
+  </p>
+</section>
+
+<section id="tienda" class="container hidden">
+  <h2>Productos Destacados</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://i.imgur.com/dsWUR7P.jpg" alt="Casco Deportivo" />
+      <div class="info">
+        <div class="product-name">Casco Deportivo</div>
+        <div class="price">$2,400 MXN</div>
       </div>
-      <div class="card">
-        <img src="5653fa7b-f993-4a35-89fc-9a35e90510e0.jpeg" alt="AGV K6 S" />
-        <div class="product-name">AGV K6 S</div>
-        <div class="price">$14,200 MXN</div>
-        <button class="boton" onclick="agregarProducto('AGV K6 S', 14200)">
-          Agregar
-        </button>
+      <button class="boton" onclick="agregarProducto('Casco Deportivo', 2400)">Agregar al carrito</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/0jqWy8a.jpg" alt="Casco Urbano" />
+      <div class="info">
+        <div class="product-name">Casco Urbano</div>
+        <div class="price">$1,800 MXN</div>
       </div>
-      <div class="card">
-        <img
-          src="9916c4f1-504b-412d-ab65-498df34b9fbc.jpeg"
-          alt="AGV Pista GP RR Mugello"
-        />
-        <div class="product-name">AGV Pista GP RR Mugello</div>
-        <div class="price">$25,000 MXN</div>
-        <button
-          class="boton"
-          onclick="agregarProducto('AGV Pista GP RR Mugello', 25000)"
-        >
-          Agregar
-        </button>
+      <button class="boton" onclick="agregarProducto('Casco Urbano', 1800)">Agregar al carrito</button>
+    </div>
+  </div>
+</section>
+
+<section id="accesorios" class="container hidden">
+  <h2>Accesorios</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://i.imgur.com/3M58xYU.jpg" alt="Lentes para casco" />
+      <div class="info">
+        <div class="product-name">Lentes para casco</div>
+        <div class="price">$300 MXN</div>
       </div>
-      <div class="card">
-        <img src="43574f41-e282-4e78-aceb-b9c5a1c2191f.jpeg" alt="AGV Sport Modular" />
-        <div class="product-name">AGV Sport Modular</div>
-        <div class="price">$18,500 MXN</div>
-        <button class="boton" onclick="agregarProducto('AGV Sport Modular', 18500)">
-          Agregar
-        </button>
+      <button class="boton" onclick="agregarProducto('Lentes para casco', 300)">Agregar al carrito</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/IUUCDdE.jpg" alt="Parche reflectante" />
+      <div class="info">
+        <div class="product-name">Parche reflectante</div>
+        <div class="price">$150 MXN</div>
       </div>
+      <button class="boton" onclick="agregarProducto('Parche reflectante', 150)">Agregar al carrito</button>
     </div>
   </div>
+</section>
 
-  <!-- Accesorios -->
-  <div
-    id="accesorios"
-    class="container"
-    style="display: none; flex-wrap: wrap; justify-content: center;"
-  >
+<section id="guantes" class="container hidden">
+  <h2>Guantes</h2>
+  <div class="cards">
     <div class="card">
-      <img
-        src="acce-1.jpg"
-        alt="Cámara para casco"
-      />
-      <div class="product-name">Cámara para casco</div>
-      <div class="price">$1,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Cámara para casco', 1500)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="acce-2.jpg"
-        alt="Kit de limpieza"
-      />
-      <div class="product-name">Kit de limpieza</div>
-      <div class="price">$350 MXN</div>
-      <button class="boton" onclick="agregarProducto('Kit de limpieza', 350)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="acce-3.jpg"
-        alt="Visera tintada"
-      />
-      <div class="product-name">Visera tintada</div>
-      <div class="price">$1,200 MXN</div>
-      <button class="boton" onclick="agregarProducto('Visera tintada', 1200)">
-        Agregar
-      </button>
-    </div>
-  </div>
-
-  <!-- Guantes -->
-  <div
-    id="guantes"
-    class="container"
-    style="display: none; flex-wrap: wrap; justify-content: center;"
-  >
-    <div class="card">
-      <img src="guante-1.jpg" alt="Guantes de cuero" />
-      <div class="product-name">Guantes de cuero</div>
-      <div class="price">$800 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes de cuero', 800)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="guante-2.jpg" alt="Guantes térmicos" />
-      <div class="product-name">Guantes térmicos</div>
-      <div class="price">$950 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes térmicos', 950)">
-        Agregar
-      </button>
-    </div>
-  </div>
-
-  <!-- Monotrajes -->
-  <div
-    id="monotrajes"
-    class="container"
-    style="display: none; flex-wrap: wrap; justify-content: center;"
-  >
-    <div class="card">
-      <img src="mono-1.jpg" alt="Monotraje Racing" />
-      <div class="product-name">Monotraje Racing</div>
-      <div class="price">$8,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Racing', 8500)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="mono-2.jpg" alt="Monotraje Touring" />
-      <div class="product-name">Monotraje Touring</div>
-      <div class="price">$7,200 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Touring', 7200)">
-        Agregar
-      </button>
-    </div>
-  </div>
-
-  <!-- Ver Carrito -->
-  <div
-    id="vercarrito"
-    class="container"
-    style="display: none; flex-direction: column; align-items: center;"
-  >
-    <h2>Carrito de Compras</h2>
-    <div id="lista-carrito" style="margin-bottom: 25px; width: 100%; max-width: 600px;"></div>
-    <div id="total" style="font-weight: bold; font-size: 22px; margin-bottom: 30px;"></div>
-    <button class="boton" id="finalizarCompraBtn" onclick="finalizarCompra()" style="width: 200px;">Finalizar Compra</button>
-  </div>
-
-  <!-- Resumen de compra -->
-  <div id="resumen" class="resumen"></div>
-
-  <!-- Quejas y Sugerencias -->
-  <div id="quejas" class="container" style="display:none; flex-direction: column; align-items: center;">
-    <div id="quejas" >
-      <h2>Quejas y Sugerencias</h2>
-      <form id="form-quejas" onsubmit="enviarQueja(event)">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required />
-        <label for="correo">Correo Electrónico:</label>
-        <input type="email" id="correo" name="correo" required />
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-        <button class="boton" type="submit">Enviar</button>
-      </form>
-      <div id="contacto" style="margin-top:20px;">
-        <p>Contáctanos en:</p>
-        <p>Email: <a href="mailto:mael.arivat@gmail.com">mael.arivat@gmail.com</a></p>
-        <p>Teléfono: <a href="tel:+5215551234567">+52 1 55 5123 4567</a></p>
-        <p>
-          Síguenos en
-          <a href="https://www.facebook.com/MaelArivat" target="_blank" rel="noopener">Facebook</a>
-          y
-          <a href="https://www.instagram.com/mael_arivat" target="_blank" rel="noopener">Instagram</a>
-        </p>
+      <img src="https://i.imgur.com/YVP7sYo.jpg" alt="Guantes de cuero" />
+      <div class="info">
+        <div class="product-name">Guantes de cuero</div>
+        <div class="price">$450 MXN</div>
       </div>
+      <button class="boton" onclick="agregarProducto('Guantes de cuero', 450)">Agregar al carrito</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/yPTlRqe.jpg" alt="Guantes térmicos" />
+      <div class="info">
+        <div class="product-name">Guantes térmicos</div>
+        <div class="price">$600 MXN</div>
+      </div>
+      <button class="boton" onclick="agregarProducto('Guantes térmicos', 600)">Agregar al carrito</button>
     </div>
   </div>
+</section>
 
-  <footer>
-    &copy; 2025 Cascos Hats Arivat - Todos los derechos reservados.
-  </footer>
+<section id="monotrajes" class="container hidden">
+  <h2>Monotrajes</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://i.imgur.com/LaJ2z5X.jpg" alt="Monotraje impermeable" />
+      <div class="info">
+        <div class="product-name">Monotraje impermeable</div>
+        <div class="price">$2,200 MXN</div>
+      </div>
+      <button class="boton" onclick="agregarProducto('Monotraje impermeable', 2200)">Agregar al carrito</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/N3iZ2Td.jpg" alt="Monotraje térmico" />
+      <div class="info">
+        <div class="product-name">Monotraje térmico</div>
+        <div class="price">$2,800 MXN</div>
+      </div>
+      <button class="boton" onclick="agregarProducto('Monotraje térmico', 2800)">Agregar al carrito</button>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Control de visualización de secciones
-    function mostrarInicio() {
-      ocultarTodo();
-      document.getElementById('inicio').style.display = 'flex';
-      mostrarMenu(false);
-    }
+<section id="vercarrito" class="container hidden">
+  <h2>Tu Carrito de Compras</h2>
+  <div id="lista-carrito">
+    <p>No hay productos en el carrito.</p>
+  </div>
+  <div id="total"></div>
+  <button id="finalizarCompraBtn" class="boton" onclick="finalizarCompra()" style="display:none;">Finalizar Compra</button>
+</section>
 
-    function mostrarTienda() {
-      ocultarTodo();
-      document.getElementById('tienda').style.display = 'flex';
-      mostrarMenu(true);
-      fadeIn(document.getElementById('tienda'));
-    }
+<section id="resumen" class="container hidden">
+  <h2>Resumen de tu compra</h2>
+  <ul id="resumen-productos"></ul>
+  <p id="resumen-total"></p>
+  <label for="calificacion">Califica tu experiencia (1 a 10): </label>
+  <input type="number" id="calificacion" min="1" max="10" />
+  <button class="boton" onclick="enviarCalificacion()">Enviar Calificación</button>
+</section>
 
-    function mostrarSeccion(id) {
-      ocultarTodo();
-      document.getElementById(id).style.display = 'flex';
-      mostrarMenu(true);
-      if (id !== 'quejas') fadeIn(document.getElementById(id));
-    }
+<section id="quejas" class="container hidden">
+  <h2>Quejas y Sugerencias</h2>
+  <form id="formQuejas" onsubmit="return enviarQueja()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required />
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" required />
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" required></textarea>
+    <button class="boton" type="submit">Enviar</button>
+  </form>
+  <div id="mensaje-envio" style="margin-top:15px; font-weight:bold; color:green;"></div>
 
-    function verCarrito() {
-      ocultarTodo();
-      document.getElementById('vercarrito').style.display = 'flex';
-      mostrarMenu(true);
+  <div id="contacto">
+    <p>Contáctanos:</p>
+    <p>Email: <a href="mailto:mael.arivat@gmail.com">mael.arivat@gmail.com</a></p>
+    <p>Teléfono: +52 123 456 7890</p>
+    <p>
+      Síguenos en redes sociales: 
+      <a href="https://facebook.com/mael.arivat" target="_blank">Facebook</a> | 
+      <a href="https://instagram.com/mael.arivat" target="_blank">Instagram</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Cascos Hats Arivat. Todos los derechos reservados.
+</footer>
+
+<script>
+  // Mostrar solo la sección seleccionada
+  function mostrarSeccion(id) {
+    const secciones = ['inicio', 'tienda', 'accesorios', 'guantes', 'monotrajes', 'vercarrito', 'quejas', 'resumen'];
+    secciones.forEach(seccion => {
+      document.getElementById(seccion).classList.add('hidden');
+    });
+    document.getElementById(id).classList.remove('hidden');
+    if (id === 'vercarrito') {
       mostrarCarrito();
     }
-
-    function ocultarTodo() {
-      const secciones = ['inicio', 'tienda', 'accesorios', 'guantes', 'monotrajes', 'vercarrito', 'resumen', 'quejas'];
-      secciones.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.display = 'none';
-      });
+    if (id === 'resumen') {
+      // No hacer nada aquí (se muestra desde finalizarCompra)
     }
+  }
 
-    function mostrarMenu(mostrar) {
-      const enlaces = document.querySelectorAll('nav a.menu');
-      enlaces.forEach(a => {
-        a.style.display = mostrar ? 'inline' : 'none';
-      });
+  // Carrito: array para productos
+  let carrito = [];
+
+  // Añadir producto al carrito
+  function agregarProducto(nombre, precio) {
+    // Buscar si el producto ya está en el carrito
+    let producto = carrito.find(p => p.nombre === nombre);
+    if (producto) {
+      producto.cantidad++;
+    } else {
+      carrito.push({ nombre, precio, cantidad: 1 });
     }
+    alert('Producto agregado al carrito: ' + nombre);
+  }
 
-    function fadeIn(element) {
-      element.style.opacity = 0;
-      element.style.display = 'flex';
-      let op = 0;
-      const timer = setInterval(() => {
-        if (op >= 1) clearInterval(timer);
-        element.style.opacity = op;
-        op += 0.05;
-      }, 30);
+  // Mostrar carrito
+  function mostrarCarrito() {
+    const lista = document.getElementById('lista-carrito');
+    const totalDiv = document.getElementById('total');
+    const finalizarBtn = document.getElementById('finalizarCompraBtn');
+    lista.innerHTML = '';
+    if (carrito.length === 0) {
+      lista.innerHTML = '<p>No hay productos en el carrito.</p>';
+      totalDiv.textContent = '';
+      finalizarBtn.style.display = 'none';
+      return;
     }
+    carrito.forEach((producto, index) => {
+      let p = document.createElement('p');
+      p.textContent = `${producto.nombre} - $${producto.precio} x ${producto.cantidad} = $${producto.precio * producto.cantidad}`;
+      // Botón para eliminar producto individual
+      let btnEliminar = document.createElement('button');
+      btnEliminar.textContent = 'Eliminar';
+      btnEliminar.style.marginLeft = '15px';
+      btnEliminar.style.backgroundColor = '#cc0000';
+      btnEliminar.style.color = 'white';
+      btnEliminar.style.border = 'none';
+      btnEliminar.style.borderRadius = '4px';
+      btnEliminar.style.cursor = 'pointer';
+      btnEliminar.onclick = () => {
+        carrito.splice(index, 1);
+        mostrarCarrito();
+      };
+      p.appendChild(btnEliminar);
+      lista.appendChild(p);
+    });
+    let total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
+    totalDiv.textContent = `Total: $${total} MXN`;
+    finalizarBtn.style.display = 'inline-block';
+  }
 
-    // Carrito de compras
-    let carrito = [];
-
-    function agregarProducto(nombre, precio) {
-      carrito.push({ nombre, precio });
-      alert(nombre + ' agregado al carrito.');
+  // Finalizar compra
+  function finalizarCompra() {
+    if (carrito.length === 0) {
+      alert('Tu carrito está vacío.');
+      return;
     }
+    // Mostrar resumen
+    mostrarSeccion('resumen');
+    const ulResumen = document.getElementById('resumen-productos');
+    ulResumen.innerHTML = '';
+    carrito.forEach(prod => {
+      let li = document.createElement('li');
+      li.textContent = `${prod.nombre} x ${prod.cantidad} = $${prod.precio * prod.cantidad}`;
+      ulResumen.appendChild(li);
+    });
+    let total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
+    document.getElementById('resumen-total').textContent = `Total a pagar: $${total} MXN`;
+  }
 
-    function mostrarCarrito() {
-      const lista = document.getElementById('lista-carrito');
-      const total = document.getElementById('total');
-      lista.innerHTML = '';
-      if (carrito.length === 0) {
-        lista.innerHTML = '<p>El carrito está vacío.</p>';
-        total.textContent = '';
-        document.getElementById('finalizarCompraBtn').disabled = true;
-        return;
-      }
-      document.getElementById('finalizarCompraBtn').disabled = false;
-      let suma = 0;
-      carrito.forEach((item, i) => {
-        suma += item.precio;
-        lista.innerHTML +=
-          `<p>${item.nombre} - $${item.precio.toLocaleString('es-MX')}</p>`;
-      });
-      total.textContent = 'Total: $' + suma.toLocaleString('es-MX') + ' MXN';
+  // Enviar calificación
+  function enviarCalificacion() {
+    const califInput = document.getElementById('calificacion');
+    let calif = parseInt(califInput.value);
+    if (!calif || calif < 1 || calif > 10) {
+      alert('Por favor, ingresa una calificación válida entre 1 y 10.');
+      return;
     }
+    alert(`Gracias por tu calificación de ${calif}!`);
+    // Vaciar carrito y resetear todo
+    carrito = [];
+    califInput.value = '';
+    mostrarSeccion('inicio');
+  }
 
-    function finalizarCompra() {
-      if (carrito.length === 0) {
-        alert('Tu carrito está vacío.');
-        return;
-      }
-      ocultarTodo();
-      const resumen = document.getElementById('resumen');
-      let textoResumen = '<h2>Resumen de tu compra</h2><ul>';
-      let total = 0;
-      carrito.forEach(item => {
-        textoResumen += `<li>${item.nombre} - $${item.precio.toLocaleString('es-MX')} MXN</li>`;
-        total += item.precio;
-      });
-      textoResumen += `</ul><p><strong>Total a pagar:</strong> $${total.toLocaleString('es-MX')} MXN</p>`;
-      textoResumen +=
-        '<p><em>Gracias por tu compra. ¿Qué calificación le das a nuestra tienda del 1 al 10?</em></p>' +
-        '<input type="number" id="calificacion" min="1" max="10" step="1" />' +
-        '<button class="boton" onclick="enviarCalificacion()">Enviar Calificación</button>';
-      resumen.innerHTML = textoResumen;
-      resumen.style.display = 'block';
-      carrito = [];
+  // Enviar queja o sugerencia (simulado)
+  function enviarQueja() {
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+    if (!nombre || !email || !mensaje) {
+      alert('Por favor, completa todos los campos.');
+      return false;
     }
+    // Simulación de envío (no hay backend)
+    document.getElementById('mensaje-envio').textContent = '¡Gracias por tu mensaje! Te responderemos pronto.';
+    document.getElementById('formQuejas').reset();
+    return false; // evitar recarga
+  }
 
-    function enviarCalificacion() {
-      const cal = document.getElementById('calificacion').value;
-      if (!cal || cal < 1 || cal > 10) {
-        alert('Por favor, ingresa una calificación válida entre 1 y 10.');
-        return;
-      }
-      alert('¡Gracias por tu calificación de ' + cal + '!');
-      document.getElementById('resumen').style.display = 'none';
-      mostrarInicio();
-    }
+  // Al cargar la página mostrar Inicio
+  window.onload = function () {
+    mostrarSeccion('inicio');
+  };
+</script>
 
-    // Formulario de Quejas y Sugerencias
-    function enviarQueja(event) {
-      event.preventDefault();
-      const nombre = document.getElementById('nombre').value.trim();
-      const correo = document.getElementById('correo').value.trim();
-      const mensaje = document.getElementById('mensaje').value.trim();
-      if (!nombre || !correo || !mensaje) {
-        alert('Por favor, completa todos los campos.');
-        return;
-      }
-      alert('Gracias por tu mensaje, ' + nombre + '. Nos pondremos en contacto pronto.');
-      document.getElementById('form-quejas').reset();
-    }
-
-    // Inicial
-    mostrarInicio();
-  </script>
 </body>
 </html>
