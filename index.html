@@ -164,6 +164,78 @@
       color: #777;
     }
 
+    .quejas {
+      text-align: center;
+      padding: 30px;
+      font-size: 18px;
+      display: none;
+      background-color: #f9f9f9;
+    }
+
+    .quejas h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #d4af37;
+    }
+
+    .contacto-info {
+      margin: 20px 0;
+    }
+
+    .contacto-info p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 10px;
+      transition: background-color 0.3s;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1DA851;
+    }
+
+    .redes-sociales {
+      margin-top: 30px;
+    }
+
+    .redes-sociales h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .redes-sociales a {
+      display: inline-block;
+      margin: 10px 15px;
+      padding: 12px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+
+    .redes-sociales a:hover {
+      transform: scale(1.05);
+    }
+
+    .facebook {
+      background-color: #1877F2;
+    }
+
+    .instagram {
+      background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+    }
+
     @media (max-width: 768px) {
       nav {
         gap: 20px;
@@ -210,6 +282,7 @@
       >Monotrajes</a
     >
     <a href="#vercarrito" class="menu" onclick="verCarrito()">Ver Carrito</a>
+    <a href="#quejas" class="menu" onclick="mostrarQuejas()">Quejas y Sugerencias</a>
   </nav>
 
   <div id="inicio" class="inicio">
@@ -386,6 +459,29 @@
     </div>
   </div>
 
+  <!-- Quejas y Sugerencias -->
+  <div id="quejas" class="quejas">
+    <h2>Quejas y Sugerencias</h2>
+    <div class="contacto-info">
+      <p><strong>Teléfono:</strong> 55-7136-7666</p>
+      <p><strong>Gmail:</strong> cascos.hats.arivat@gmail.com</p>
+    </div>
+    
+    <a href="https://wa.me/525571367666" class="whatsapp-btn" target="_blank">
+      💬 Contactar por WhatsApp
+    </a>
+    
+    <div class="redes-sociales">
+      <h3>Síguenos en nuestras redes sociales:</h3>
+      <a href="https://www.facebook.com/mael.arivat" class="facebook" target="_blank">
+        📘 Facebook - Mael Arivat
+      </a>
+      <a href="https://www.instagram.com/mael.arivat" class="instagram" target="_blank">
+        📷 Instagram - Mael Arivat
+      </a>
+    </div>
+  </div>
+
   <div id="resumen" class="resumen"></div>
 
   <footer>
@@ -397,6 +493,7 @@
     const contenedores = document.querySelectorAll('.container');
     const resumenDiv = document.getElementById('resumen');
     const inicioDiv = document.getElementById('inicio');
+    const quejasDiv = document.getElementById('quejas');
 
     // Mostrar solo el inicio al cargar
     mostrarInicio();
@@ -408,6 +505,7 @@
         c.style.opacity = 0;
       });
       resumenDiv.style.display = 'none';
+      quejasDiv.style.display = 'none';
       enlacesMenu.forEach(e => (e.style.display = 'inline'));
     }
 
@@ -419,6 +517,7 @@
     function mostrarSeccion(id) {
       inicioDiv.style.display = 'none';
       resumenDiv.style.display = 'none';
+      quejasDiv.style.display = 'none';
       contenedores.forEach(c => {
         if (c.id === id) {
           c.style.display = 'flex';
@@ -428,6 +527,17 @@
           setTimeout(() => (c.style.display = 'none'), 400);
         }
       });
+      enlacesMenu.forEach(e => (e.style.display = 'inline'));
+    }
+
+    function mostrarQuejas() {
+      inicioDiv.style.display = 'none';
+      resumenDiv.style.display = 'none';
+      contenedores.forEach(c => {
+        c.style.display = 'none';
+        c.style.opacity = 0;
+      });
+      quejasDiv.style.display = 'block';
       enlacesMenu.forEach(e => (e.style.display = 'inline'));
     }
 
@@ -459,6 +569,11 @@
 
     function mostrarResumen(metodoPago) {
       resumenDiv.style.display = 'block';
+      contenedores.forEach(c => {
+        c.style.display = 'none';
+        c.style.opacity = 0;
+      });
+      quejasDiv.style.display = 'none';
       let lista = carrito
         .map(
           p =>
@@ -471,6 +586,7 @@
         <ul>${lista}</ul>
         <p><strong>Total: $${total.toLocaleString()} MXN</strong></p>
         <p>Método de pago: <em>${metodoPago}</em></p>
+        <button class="boton" onclick="finalizarCompra()">Finalizar Compra</button>
       `;
 
       // Encuesta de calificación después de mostrar resumen
@@ -482,6 +598,14 @@
           alert('Gracias verificaremos su calif de ' + calificacion + '!');
         }
       }, 500);
+    }
+
+    function finalizarCompra() {
+      alert('¡Compra finalizada exitosamente! Gracias por tu compra.');
+      // Restablecer carrito
+      carrito = [];
+      // Volver al menú principal
+      mostrarInicio();
     }
 
     // Función para mostrar productos agregados al carrito
