@@ -15,7 +15,7 @@
       box-sizing: border-box;
     }
     body {
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: #fff;
       color: #333;
     }
@@ -66,8 +66,8 @@
     .inicio {
       margin-top: 130px;
       height: calc(100vh - 130px);
-      background: url("534c8e97-a1b3-4a44-aa94-1fd78c9d6427.jpeg") no-repeat
-        center center/cover;
+      background: url('534c8e97-a1b3-4a44-aa94-1fd78c9d6427.jpeg')
+        no-repeat center center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -154,6 +154,16 @@
       display: none;
     }
 
+    .resumen h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #d4af37;
+    }
+
+    .resumen em {
+      color: #777;
+    }
+
     @media (max-width: 768px) {
       nav {
         gap: 20px;
@@ -196,12 +206,10 @@
       >Accesorios</a
     >
     <a href="#guantes" class="menu" onclick="mostrarSeccion('guantes')">Guantes</a>
-    <a
-      href="#monotrajes"
-      class="menu"
-      onclick="mostrarSeccion('monotrajes')"
+    <a href="#monotrajes" class="menu" onclick="mostrarSeccion('monotrajes')"
       >Monotrajes</a
     >
+    <a href="#vercarrito" class="menu" onclick="verCarrito()">Ver Carrito</a>
   </nav>
 
   <div id="inicio" class="inicio">
@@ -262,7 +270,10 @@
   <!-- Accesorios -->
   <div id="accesorios" class="container">
     <div class="card">
-      <img src="https://i.ibb.co/Ybq1Jjp/accesorio1.jpg" alt="Visor Iridium" />
+      <img
+        src="https://i.ibb.co/Ybq1Jjp/accesorio1.jpg"
+        alt="Visor Iridium"
+      />
       <div class="product-name">Visor Iridium</div>
       <div class="price">$1,200 MXN</div>
       <button class="boton" onclick="agregarProducto('Visor Iridium', 1200)">
@@ -270,7 +281,10 @@
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/vJyphsy/accesorio2.jpg" alt="Bolsa para casco" />
+      <img
+        src="https://i.ibb.co/vJyphsy/accesorio2.jpg"
+        alt="Bolsa para casco"
+      />
       <div class="product-name">Bolsa para casco</div>
       <div class="price">$650 MXN</div>
       <button class="boton" onclick="agregarProducto('Bolsa para casco', 650)">
@@ -278,7 +292,10 @@
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/6bPnQLx/accesorio3.jpg" alt="Pinlock antivaho" />
+      <img
+        src="https://i.ibb.co/6bPnQLx/accesorio3.jpg"
+        alt="Pinlock antivaho"
+      />
       <div class="product-name">Pinlock antivaho</div>
       <div class="price">$800 MXN</div>
       <button class="boton" onclick="agregarProducto('Pinlock antivaho', 800)">
@@ -292,7 +309,10 @@
       />
       <div class="product-name">Soporte GoPro para casco</div>
       <div class="price">$300 MXN</div>
-      <button class="boton" onclick="agregarProducto('Soporte GoPro para casco', 300)">
+      <button
+        class="boton"
+        onclick="agregarProducto('Soporte GoPro para casco', 300)"
+      >
         Agregar
       </button>
     </div>
@@ -309,7 +329,10 @@
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/vmPDP9n/guante2.jpg" alt="Guantes Urbanos Verano" />
+      <img
+        src="https://i.ibb.co/vmPDP9n/guante2.jpg"
+        alt="Guantes Urbanos Verano"
+      />
       <div class="product-name">Guantes Urbanos Verano</div>
       <div class="price">$950 MXN</div>
       <button class="boton" onclick="agregarProducto('Guantes Urbanos Verano', 950)">
@@ -317,18 +340,13 @@
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/WxLg5rB/guante3.jpg" alt="Guantes Invierno Térmicos" />
+      <img
+        src="https://i.ibb.co/WxLg5rB/guante3.jpg"
+        alt="Guantes Invierno Térmicos"
+      />
       <div class="product-name">Guantes Invierno Térmicos</div>
-      <div class="price">$1,300 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Invierno Térmicos', 1300)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/zsZ2Rzg/guante4.jpg" alt="Guantes Cortos" />
-      <div class="product-name">Guantes Cortos</div>
-      <div class="price">$700 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Cortos', 700)">
+      <div class="price">$1,400 MXN</div>
+      <button class="boton" onclick="agregarProducto('Guantes Invierno Térmicos', 1400)">
         Agregar
       </button>
     </div>
@@ -337,34 +355,35 @@
   <!-- Monotrajes -->
   <div id="monotrajes" class="container">
     <div class="card">
-      <img src="https://i.ibb.co/qF0gJXy/mono1.jpg" alt="Monotraje Dainese Laguna Seca" />
-      <div class="product-name">Dainese Laguna Seca</div>
-      <div class="price">$28,000 MXN</div>
-      <button class="boton" onclick="agregarProducto('Dainese Laguna Seca', 28000)">
+      <img
+        src="583cb9ad-407a-4a44-a0f2-f5dcbf89d65d.jpeg"
+        alt="Monotraje Racing Pro"
+      />
+      <div class="product-name">Monotraje Racing Pro</div>
+      <div class="price">$15,000 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Racing Pro', 15000)">
         Agregar
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/CMWh2nX/mono2.jpg" alt="Monotraje Alpinestars GP Pro" />
-      <div class="product-name">Alpinestars GP Pro</div>
-      <div class="price">$25,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Alpinestars GP Pro', 25500)">
+      <img
+        src="5868cfc3-4885-410d-8b15-37e4ca8e1b87.jpeg"
+        alt="Monotraje Urbano"
+      />
+      <div class="product-name">Monotraje Urbano</div>
+      <div class="price">$12,000 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Urbano', 12000)">
         Agregar
       </button>
     </div>
     <div class="card">
-      <img src="https://i.ibb.co/R39HTVs/mono3.jpg" alt="Monotraje Rev’It! Ignition" />
-      <div class="product-name">Rev’It! Ignition</div>
-      <div class="price">$22,700 MXN</div>
-      <button class="boton" onclick="agregarProducto('Rev’It! Ignition', 22700)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/5k2RfS9/mono4.jpg" alt="Monotraje Spidi Track Wind" />
-      <div class="product-name">Spidi Track Wind</div>
-      <div class="price">$20,900 MXN</div>
-      <button class="boton" onclick="agregarProducto('Spidi Track Wind', 20900)">
+      <img
+        src="eab2d05f-df07-472f-8bee-83ac488b7980.jpeg"
+        alt="Monotraje Térmico"
+      />
+      <div class="product-name">Monotraje Térmico</div>
+      <div class="price">$14,500 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Térmico', 14500)">
         Agregar
       </button>
     </div>
@@ -372,96 +391,118 @@
 
   <div id="resumen" class="resumen"></div>
 
+  <footer>
+    cascos Hats 2025 los mejores :)) &copy;
+  </footer>
+
   <script>
-    const carrito = [];
+    const enlacesMenu = document.querySelectorAll('nav a.menu');
+    const contenedores = document.querySelectorAll('.container');
+    const resumenDiv = document.getElementById('resumen');
+    const inicioDiv = document.getElementById('inicio');
+
+    // Mostrar solo el inicio al cargar
+    mostrarInicio();
 
     function mostrarInicio() {
-      ocultarContenedores();
-      document.getElementById("inicio").style.display = "flex";
-      document.getElementById("inicio").style.opacity = "1";
-      mostrarMenu(false);
+      inicioDiv.style.display = 'flex';
+      contenedores.forEach(c => {
+        c.style.display = 'none';
+        c.style.opacity = 0;
+      });
+      resumenDiv.style.display = 'none';
+      enlacesMenu.forEach(e => (e.style.display = 'inline'));
     }
 
     function mostrarTienda() {
-      ocultarContenedores();
-      document.getElementById("tienda").style.display = "flex";
-      document.getElementById("tienda").style.opacity = "1";
-      mostrarMenu(true);
+      inicioDiv.style.display = 'none';
+      mostrarSeccion('tienda');
     }
 
-    function mostrarSeccion(seccion) {
-      ocultarContenedores();
-      document.getElementById(seccion).style.display = "flex";
-      document.getElementById(seccion).style.opacity = "1";
-      mostrarMenu(true);
-    }
-
-    function ocultarContenedores() {
-      const contenedores = document.querySelectorAll(".container, .inicio");
-      contenedores.forEach((c) => {
-        c.style.display = "none";
-        c.style.opacity = "0";
-      });
-      document.getElementById("resumen").style.display = "none";
-    }
-
-    function mostrarMenu(mostrar) {
-      const enlaces = document.querySelectorAll("nav a.menu");
-      enlaces.forEach((enlace) => {
-        if (mostrar) {
-          enlace.classList.add("visible");
+    function mostrarSeccion(id) {
+      inicioDiv.style.display = 'none';
+      resumenDiv.style.display = 'none';
+      contenedores.forEach(c => {
+        if (c.id === id) {
+          c.style.display = 'flex';
+          setTimeout(() => (c.style.opacity = 1), 50);
         } else {
-          enlace.classList.remove("visible");
+          c.style.opacity = 0;
+          setTimeout(() => (c.style.display = 'none'), 400);
         }
       });
+      enlacesMenu.forEach(e => (e.style.display = 'inline'));
     }
+
+    let carrito = [];
 
     function agregarProducto(nombre, precio) {
       carrito.push({ nombre, precio });
-      alert(`Agregaste "${nombre}" al carrito.`);
+      alert(nombre + ' agregado al carrito.');
     }
 
     function elegirPago() {
       if (carrito.length === 0) {
-        alert("No has agregado productos al carrito.");
+        alert('No has agregado productos al carrito.echale algo rey');
         return;
       }
-      let metodo = prompt("¿Cómo deseas pagar?\n1. Tarjeta\n2. Efectivo");
-      if (metodo === "1") {
-        mostrarResumen("Tarjeta");
-      } else if (metodo === "2") {
-        mostrarResumen("Efectivo");
+      let metodo = prompt(
+        '¿Cómo deseas pagar?\n1. Tarjeta\n2. Transferencia\n3. Pago en tienda'
+      );
+      if (metodo === '1') {
+        mostrarResumen('Tarjeta');
+      } else if (metodo === '2') {
+        mostrarResumen('Transferencia');
+      } else if (metodo === '3') {
+        mostrarResumen('Pago en tienda');
       } else {
-        alert("Método de pago no válido.");
+        alert('pon un metodo valido padre seleciona del 1 al 3.');
       }
     }
 
     function mostrarResumen(metodoPago) {
-      ocultarContenedores();
-      const resumen = document.getElementById("resumen");
-      resumen.style.display = "block";
-      let texto = `<h2>Resumen de Compra</h2><ul>`;
-      let total = 0;
-      carrito.forEach((producto) => {
-        texto += `<li>${producto.nombre} - $${producto.precio.toLocaleString(
-          "es-MX"
-        )} MXN</li>`;
-        total += producto.precio;
-      });
-      texto += `</ul>`;
-      texto += `<p><strong>Total:</strong> $${total.toLocaleString(
-        "es-MX"
-      )} MXN</p>`;
-      texto += `<p><strong>Método de pago:</strong> ${metodoPago}</p>`;
-      texto += `<p>Gracias por tu compra.</p>`;
-      resumen.innerHTML = texto;
+      resumenDiv.style.display = 'block';
+      let lista = carrito
+        .map(
+          p =>
+            `<li>${p.nombre}: $${p.precio.toLocaleString()} MXN</li>`
+        )
+        .join('');
+      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      resumenDiv.innerHTML = `
+        <h2>Resumen de Compra</h2>
+        <ul>${lista}</ul>
+        <p><strong>Total: $${total.toLocaleString()} MXN</strong></p>
+        <p>Método de pago: <em>${metodoPago}</em></p>
+      `;
 
-      carrito.length = 0; // Vaciar carrito tras compra
+      // Encuesta de calificación después de mostrar resumen
+      setTimeout(() => {
+        let calificacion = prompt(
+          '¿Quedo bella la pagina y que calif le da del 1 al 10?'
+        );
+        if (calificacion !== null) {
+          alert('Gracias verificaremos su calif de ' + calificacion + '!');
+        }
+      }, 500);
     }
 
-    // Iniciar en pantalla inicio
-    mostrarInicio();
+    // Función para mostrar productos agregados al carrito
+    function verCarrito() {
+      if (carrito.length === 0) {
+        alert('Tu carrito está vacío echale un casquito.');
+        return;
+      }
+      let lista = carrito
+        .map(p => `- ${p.nombre}: $${p.precio.toLocaleString()} MXN`)
+        .join('\n');
+      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      alert(
+        'Productos en tu carrito:\n\n' +
+          lista +
+          `\n\nTotal: $${total.toLocaleString()} MXN`
+      );
+    }
   </script>
-  <footer>© 2025 Cascos Hats Arivat</footer>
 </body>
 </html>
