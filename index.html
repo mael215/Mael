@@ -164,6 +164,68 @@
       color: #777;
     }
 
+    /* Nuevo estilo para texto de cascos */
+    .casco-texto {
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+      color: #d4af37;
+      margin: 15px 0 30px;
+    }
+
+    /* Estilo para sección Quejas y Sugerencias */
+    #quejas {
+      flex-direction: column;
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    #quejas h2 {
+      color: #d4af37;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    #quejas form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #quejas label {
+      font-weight: 500;
+      color: #333;
+    }
+    #quejas input,
+    #quejas textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      resize: vertical;
+    }
+    #quejas button {
+      align-self: center;
+      width: 150px;
+    }
+    #contacto {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+    }
+    #contacto a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    #contacto a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       nav {
         gap: 20px;
@@ -178,6 +240,9 @@
       }
       .inicio {
         padding: 20px;
+      }
+      #quejas {
+        max-width: 90%;
       }
     }
 
@@ -210,6 +275,7 @@
       >Monotrajes</a
     >
     <a href="#vercarrito" class="menu" onclick="verCarrito()">Ver Carrito</a>
+    <a href="#quejas" class="menu" onclick="mostrarSeccion('quejas')">Quejas y Sugerencias</a>
   </nav>
 
   <div id="inicio" class="inicio">
@@ -217,223 +283,247 @@
   </div>
 
   <!-- Tienda -->
-  <div id="tienda" class="container">
-    <div class="card">
-      <img
-        src="41b521ba-4a2a-408e-871c-589833b2a2fb.jpeg"
-        alt="AGV Pista GP RR Limited"
-      />
-      <div class="product-name">AGV Pista GP RR Limited</div>
-      <div class="price">$23,500 MXN</div>
-      <button
-        class="boton"
-        onclick="agregarProducto('AGV Pista GP RR Limited', 23500)"
-      >
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="5653fa7b-f993-4a35-89fc-9a35e90510e0.jpeg" alt="AGV K6 S" />
-      <div class="product-name">AGV K6 S</div>
-      <div class="price">$14,200 MXN</div>
-      <button class="boton" onclick="agregarProducto('AGV K6 S', 14200)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="9916c4f1-504b-412d-ab65-498df34b9fbc.jpeg"
-        alt="AGV Pista GP RR Mugello"
-      />
-      <div class="product-name">AGV Pista GP RR Mugello</div>
-      <div class="price">$25,000 MXN</div>
-      <button
-        class="boton"
-        onclick="agregarProducto('AGV Pista GP RR Mugello', 25000)"
-      >
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="43574f41-e282-4e78-aceb-b9c5a1c2191f.jpeg" alt="AGV Sport Modular" />
-      <div class="product-name">AGV Sport Modular</div>
-      <div class="price">$18,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('AGV Sport Modular', 18500)">
-        Agregar
-      </button>
-    </div>
-    <div style="width: 100%; text-align: center; margin-top: 30px">
-      <button class="boton" onclick="elegirPago()">Finalizar Compra</button>
+  <div id="tienda" class="container" style="flex-direction: column; align-items: center;">
+    <div class="casco-texto">Somos tu mejor opción 100% garantizado</div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; width: 100%;">
+      <div class="card">
+        <img
+          src="41b521ba-4a2a-408e-871c-589833b2a2fb.jpeg"
+          alt="AGV Pista GP RR Limited"
+        />
+        <div class="product-name">AGV Pista GP RR Limited</div>
+        <div class="price">$23,500 MXN</div>
+        <button
+          class="boton"
+          onclick="agregarProducto('AGV Pista GP RR Limited', 23500)"
+        >
+          Agregar
+        </button>
+      </div>
+      <div class="card">
+        <img src="5653fa7b-f993-4a35-89fc-9a35e90510e0.jpeg" alt="AGV K6 S" />
+        <div class="product-name">AGV K6 S</div>
+        <div class="price">$14,200 MXN</div>
+        <button class="boton" onclick="agregarProducto('AGV K6 S', 14200)">
+          Agregar
+        </button>
+      </div>
+      <div class="card">
+        <img
+          src="9916c4f1-504b-412d-ab65-498df34b9fbc.jpeg"
+          alt="AGV Pista GP RR Mugello"
+        />
+        <div class="product-name">AGV Pista GP RR Mugello</div>
+        <div class="price">$25,000 MXN</div>
+        <button
+          class="boton"
+          onclick="agregarProducto('AGV Pista GP RR Mugello', 25000)"
+        >
+          Agregar
+        </button>
+      </div>
+      <div class="card">
+        <img src="43574f41-e282-4e78-aceb-b9c5a1c2191f.jpeg" alt="AGV Sport Modular" />
+        <div class="product-name">AGV Sport Modular</div>
+        <div class="price">$18,500 MXN</div>
+        <button class="boton" onclick="agregarProducto('AGV Sport Modular', 18500)">
+          Agregar
+        </button>
+      </div>
     </div>
   </div>
 
   <!-- Accesorios -->
-  <div id="accesorios" class="container">
+  <div
+    id="accesorios"
+    class="container"
+    style="display: none; flex-wrap: wrap; justify-content: center;"
+  >
     <div class="card">
       <img
-        src="https://i.ibb.co/Ybq1Jjp/accesorio1.jpg"
-        alt="Visor Iridium"
+        src="acce-1.jpg"
+        alt="Cámara para casco"
       />
-      <div class="product-name">Visor Iridium</div>
+      <div class="product-name">Cámara para casco</div>
+      <div class="price">$1,500 MXN</div>
+      <button class="boton" onclick="agregarProducto('Cámara para casco', 1500)">
+        Agregar
+      </button>
+    </div>
+    <div class="card">
+      <img
+        src="acce-2.jpg"
+        alt="Kit de limpieza"
+      />
+      <div class="product-name">Kit de limpieza</div>
+      <div class="price">$350 MXN</div>
+      <button class="boton" onclick="agregarProducto('Kit de limpieza', 350)">
+        Agregar
+      </button>
+    </div>
+    <div class="card">
+      <img
+        src="acce-3.jpg"
+        alt="Visera tintada"
+      />
+      <div class="product-name">Visera tintada</div>
       <div class="price">$1,200 MXN</div>
-      <button class="boton" onclick="agregarProducto('Visor Iridium', 1200)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="https://i.ibb.co/vJyphsy/accesorio2.jpg"
-        alt="Bolsa para casco"
-      />
-      <div class="product-name">Bolsa para casco</div>
-      <div class="price">$650 MXN</div>
-      <button class="boton" onclick="agregarProducto('Bolsa para casco', 650)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="https://i.ibb.co/6bPnQLx/accesorio3.jpg"
-        alt="Pinlock antivaho"
-      />
-      <div class="product-name">Pinlock antivaho</div>
-      <div class="price">$800 MXN</div>
-      <button class="boton" onclick="agregarProducto('Pinlock antivaho', 800)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="https://i.ibb.co/2cKbgyF/accesorio4.jpg"
-        alt="Soporte GoPro para casco"
-      />
-      <div class="product-name">Soporte GoPro para casco</div>
-      <div class="price">$300 MXN</div>
-      <button
-        class="boton"
-        onclick="agregarProducto('Soporte GoPro para casco', 300)"
-      >
+      <button class="boton" onclick="agregarProducto('Visera tintada', 1200)">
         Agregar
       </button>
     </div>
   </div>
 
   <!-- Guantes -->
-  <div id="guantes" class="container">
+  <div
+    id="guantes"
+    class="container"
+    style="display: none; flex-wrap: wrap; justify-content: center;"
+  >
     <div class="card">
-      <img src="https://i.ibb.co/vDC3YkT/guante1.jpg" alt="Guantes Racing Pro" />
-      <div class="product-name">Guantes Racing Pro</div>
-      <div class="price">$2,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Racing Pro', 2500)">
+      <img src="guante-1.jpg" alt="Guantes de cuero" />
+      <div class="product-name">Guantes de cuero</div>
+      <div class="price">$800 MXN</div>
+      <button class="boton" onclick="agregarProducto('Guantes de cuero', 800)">
         Agregar
       </button>
     </div>
     <div class="card">
-      <img
-        src="https://i.ibb.co/vmPDP9n/guante2.jpg"
-        alt="Guantes Urbanos Verano"
-      />
-      <div class="product-name">Guantes Urbanos Verano</div>
+      <img src="guante-2.jpg" alt="Guantes térmicos" />
+      <div class="product-name">Guantes térmicos</div>
       <div class="price">$950 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Urbanos Verano', 950)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="https://i.ibb.co/WxLg5rB/guante3.jpg"
-        alt="Guantes Invierno Térmicos"
-      />
-      <div class="product-name">Guantes Invierno Térmicos</div>
-      <div class="price">$1,400 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Invierno Térmicos', 1400)">
+      <button class="boton" onclick="agregarProducto('Guantes térmicos', 950)">
         Agregar
       </button>
     </div>
   </div>
 
   <!-- Monotrajes -->
-  <div id="monotrajes" class="container">
+  <div
+    id="monotrajes"
+    class="container"
+    style="display: none; flex-wrap: wrap; justify-content: center;"
+  >
     <div class="card">
-      <img
-        src="583cb9ad-407a-4a44-a0f2-f5dcbf89d65d.jpeg"
-        alt="Monotraje Racing Pro"
-      />
-      <div class="product-name">Monotraje Racing Pro</div>
-      <div class="price">$15,000 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Racing Pro', 15000)">
+      <img src="mono-1.jpg" alt="Monotraje Racing" />
+      <div class="product-name">Monotraje Racing</div>
+      <div class="price">$8,500 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Racing', 8500)">
         Agregar
       </button>
     </div>
     <div class="card">
-      <img
-        src="5868cfc3-4885-410d-8b15-37e4ca8e1b87.jpeg"
-        alt="Monotraje Urbano"
-      />
-      <div class="product-name">Monotraje Urbano</div>
-      <div class="price">$12,000 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Urbano', 12000)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="eab2d05f-df07-472f-8bee-83ac488b7980.jpeg"
-        alt="Monotraje Térmico"
-      />
-      <div class="product-name">Monotraje Térmico</div>
-      <div class="price">$14,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Térmico', 14500)">
+      <img src="mono-2.jpg" alt="Monotraje Touring" />
+      <div class="product-name">Monotraje Touring</div>
+      <div class="price">$7,200 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Touring', 7200)">
         Agregar
       </button>
     </div>
   </div>
 
+  <!-- Ver Carrito -->
+  <div
+    id="vercarrito"
+    class="container"
+    style="display: none; flex-direction: column; align-items: center;"
+  >
+    <h2>Carrito de Compras</h2>
+    <div id="lista-carrito" style="margin-bottom: 25px; width: 100%; max-width: 600px;"></div>
+    <div id="total" style="font-weight: bold; font-size: 22px; margin-bottom: 30px;"></div>
+    <button class="boton" id="finalizarCompraBtn" onclick="finalizarCompra()" style="width: 200px;">Finalizar Compra</button>
+  </div>
+
+  <!-- Resumen de compra -->
   <div id="resumen" class="resumen"></div>
 
+  <!-- Quejas y Sugerencias -->
+  <div id="quejas" class="container" style="display:none; flex-direction: column; align-items: center;">
+    <div id="quejas" >
+      <h2>Quejas y Sugerencias</h2>
+      <form id="form-quejas" onsubmit="enviarQueja(event)">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required />
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        <button class="boton" type="submit">Enviar</button>
+      </form>
+      <div id="contacto" style="margin-top:20px;">
+        <p>Contáctanos en:</p>
+        <p>Email: <a href="mailto:mael.arivat@gmail.com">mael.arivat@gmail.com</a></p>
+        <p>Teléfono: <a href="tel:+5215551234567">+52 1 55 5123 4567</a></p>
+        <p>
+          Síguenos en
+          <a href="https://www.facebook.com/MaelArivat" target="_blank" rel="noopener">Facebook</a>
+          y
+          <a href="https://www.instagram.com/mael_arivat" target="_blank" rel="noopener">Instagram</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    cascos Hats 2025 los mejores :)) &copy;
+    &copy; 2025 Cascos Hats Arivat - Todos los derechos reservados.
   </footer>
 
   <script>
-    const enlacesMenu = document.querySelectorAll('nav a.menu');
-    const contenedores = document.querySelectorAll('.container');
-    const resumenDiv = document.getElementById('resumen');
-    const inicioDiv = document.getElementById('inicio');
-
-    // Mostrar solo el inicio al cargar
-    mostrarInicio();
-
+    // Control de visualización de secciones
     function mostrarInicio() {
-      inicioDiv.style.display = 'flex';
-      contenedores.forEach(c => {
-        c.style.display = 'none';
-        c.style.opacity = 0;
-      });
-      resumenDiv.style.display = 'none';
-      enlacesMenu.forEach(e => (e.style.display = 'inline'));
+      ocultarTodo();
+      document.getElementById('inicio').style.display = 'flex';
+      mostrarMenu(false);
     }
 
     function mostrarTienda() {
-      inicioDiv.style.display = 'none';
-      mostrarSeccion('tienda');
+      ocultarTodo();
+      document.getElementById('tienda').style.display = 'flex';
+      mostrarMenu(true);
+      fadeIn(document.getElementById('tienda'));
     }
 
     function mostrarSeccion(id) {
-      inicioDiv.style.display = 'none';
-      resumenDiv.style.display = 'none';
-      contenedores.forEach(c => {
-        if (c.id === id) {
-          c.style.display = 'flex';
-          setTimeout(() => (c.style.opacity = 1), 50);
-        } else {
-          c.style.opacity = 0;
-          setTimeout(() => (c.style.display = 'none'), 400);
-        }
-      });
-      enlacesMenu.forEach(e => (e.style.display = 'inline'));
+      ocultarTodo();
+      document.getElementById(id).style.display = 'flex';
+      mostrarMenu(true);
+      if (id !== 'quejas') fadeIn(document.getElementById(id));
     }
 
+    function verCarrito() {
+      ocultarTodo();
+      document.getElementById('vercarrito').style.display = 'flex';
+      mostrarMenu(true);
+      mostrarCarrito();
+    }
+
+    function ocultarTodo() {
+      const secciones = ['inicio', 'tienda', 'accesorios', 'guantes', 'monotrajes', 'vercarrito', 'resumen', 'quejas'];
+      secciones.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+    }
+
+    function mostrarMenu(mostrar) {
+      const enlaces = document.querySelectorAll('nav a.menu');
+      enlaces.forEach(a => {
+        a.style.display = mostrar ? 'inline' : 'none';
+      });
+    }
+
+    function fadeIn(element) {
+      element.style.opacity = 0;
+      element.style.display = 'flex';
+      let op = 0;
+      const timer = setInterval(() => {
+        if (op >= 1) clearInterval(timer);
+        element.style.opacity = op;
+        op += 0.05;
+      }, 30);
+    }
+
+    // Carrito de compras
     let carrito = [];
 
     function agregarProducto(nombre, precio) {
@@ -441,68 +531,76 @@
       alert(nombre + ' agregado al carrito.');
     }
 
-    function elegirPago() {
+    function mostrarCarrito() {
+      const lista = document.getElementById('lista-carrito');
+      const total = document.getElementById('total');
+      lista.innerHTML = '';
       if (carrito.length === 0) {
-        alert('No has agregado productos al carrito.echale algo rey');
+        lista.innerHTML = '<p>El carrito está vacío.</p>';
+        total.textContent = '';
+        document.getElementById('finalizarCompraBtn').disabled = true;
         return;
       }
-      let metodo = prompt(
-        '¿Cómo deseas pagar?\n1. Tarjeta\n2. Transferencia\n3. Pago en tienda'
-      );
-      if (metodo === '1') {
-        mostrarResumen('Tarjeta');
-      } else if (metodo === '2') {
-        mostrarResumen('Transferencia');
-      } else if (metodo === '3') {
-        mostrarResumen('Pago en tienda');
-      } else {
-        alert('pon un metodo valido padre seleciona del 1 al 3.');
-      }
+      document.getElementById('finalizarCompraBtn').disabled = false;
+      let suma = 0;
+      carrito.forEach((item, i) => {
+        suma += item.precio;
+        lista.innerHTML +=
+          `<p>${item.nombre} - $${item.precio.toLocaleString('es-MX')}</p>`;
+      });
+      total.textContent = 'Total: $' + suma.toLocaleString('es-MX') + ' MXN';
     }
 
-    function mostrarResumen(metodoPago) {
-      resumenDiv.style.display = 'block';
-      let lista = carrito
-        .map(
-          p =>
-            `<li>${p.nombre}: $${p.precio.toLocaleString()} MXN</li>`
-        )
-        .join('');
-      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
-      resumenDiv.innerHTML = `
-        <h2>Resumen de Compra</h2>
-        <ul>${lista}</ul>
-        <p><strong>Total: $${total.toLocaleString()} MXN</strong></p>
-        <p>Método de pago: <em>${metodoPago}</em></p>
-      `;
-
-      // Encuesta de calificación después de mostrar resumen
-      setTimeout(() => {
-        let calificacion = prompt(
-          '¿Quedo bella la pagina y que calif le da del 1 al 10?'
-        );
-        if (calificacion !== null) {
-          alert('Gracias verificaremos su calif de ' + calificacion + '!');
-        }
-      }, 500);
-    }
-
-    // Función para mostrar productos agregados al carrito
-    function verCarrito() {
+    function finalizarCompra() {
       if (carrito.length === 0) {
-        alert('Tu carrito está vacío echale un casquito.');
+        alert('Tu carrito está vacío.');
         return;
       }
-      let lista = carrito
-        .map(p => `- ${p.nombre}: $${p.precio.toLocaleString()} MXN`)
-        .join('\n');
-      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
-      alert(
-        'Productos en tu carrito:\n\n' +
-          lista +
-          `\n\nTotal: $${total.toLocaleString()} MXN`
-      );
+      ocultarTodo();
+      const resumen = document.getElementById('resumen');
+      let textoResumen = '<h2>Resumen de tu compra</h2><ul>';
+      let total = 0;
+      carrito.forEach(item => {
+        textoResumen += `<li>${item.nombre} - $${item.precio.toLocaleString('es-MX')} MXN</li>`;
+        total += item.precio;
+      });
+      textoResumen += `</ul><p><strong>Total a pagar:</strong> $${total.toLocaleString('es-MX')} MXN</p>`;
+      textoResumen +=
+        '<p><em>Gracias por tu compra. ¿Qué calificación le das a nuestra tienda del 1 al 10?</em></p>' +
+        '<input type="number" id="calificacion" min="1" max="10" step="1" />' +
+        '<button class="boton" onclick="enviarCalificacion()">Enviar Calificación</button>';
+      resumen.innerHTML = textoResumen;
+      resumen.style.display = 'block';
+      carrito = [];
     }
+
+    function enviarCalificacion() {
+      const cal = document.getElementById('calificacion').value;
+      if (!cal || cal < 1 || cal > 10) {
+        alert('Por favor, ingresa una calificación válida entre 1 y 10.');
+        return;
+      }
+      alert('¡Gracias por tu calificación de ' + cal + '!');
+      document.getElementById('resumen').style.display = 'none';
+      mostrarInicio();
+    }
+
+    // Formulario de Quejas y Sugerencias
+    function enviarQueja(event) {
+      event.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+      if (!nombre || !correo || !mensaje) {
+        alert('Por favor, completa todos los campos.');
+        return;
+      }
+      alert('Gracias por tu mensaje, ' + nombre + '. Nos pondremos en contacto pronto.');
+      document.getElementById('form-quejas').reset();
+    }
+
+    // Inicial
+    mostrarInicio();
   </script>
 </body>
 </html>
