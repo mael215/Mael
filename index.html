@@ -302,29 +302,51 @@
         Agregar
       </button>
     </div>
+    <div class="card">
+      <img
+        src="https://i.ibb.co/2cKbgyF/accesorio4.jpg"
+        alt="Soporte GoPro para casco"
+      />
+      <div class="product-name">Soporte GoPro para casco</div>
+      <div class="price">$300 MXN</div>
+      <button
+        class="boton"
+        onclick="agregarProducto('Soporte GoPro para casco', 300)"
+      >
+        Agregar
+      </button>
+    </div>
   </div>
 
   <!-- Guantes -->
   <div id="guantes" class="container">
     <div class="card">
-      <img
-        src="https://i.ibb.co/1rYmYYH/guante1.jpg"
-        alt="Guantes de cuero"
-      />
-      <div class="product-name">Guantes de cuero</div>
-      <div class="price">$2,300 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes de cuero', 2300)">
+      <img src="https://i.ibb.co/vDC3YkT/guante1.jpg" alt="Guantes Racing Pro" />
+      <div class="product-name">Guantes Racing Pro</div>
+      <div class="price">$2,500 MXN</div>
+      <button class="boton" onclick="agregarProducto('Guantes Racing Pro', 2500)">
         Agregar
       </button>
     </div>
     <div class="card">
       <img
-        src="https://i.ibb.co/6n9Rr5J/guante2.jpg"
-        alt="Guantes térmicos"
+        src="https://i.ibb.co/vmPDP9n/guante2.jpg"
+        alt="Guantes Urbanos Verano"
       />
-      <div class="product-name">Guantes térmicos</div>
-      <div class="price">$1,800 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes térmicos', 1800)">
+      <div class="product-name">Guantes Urbanos Verano</div>
+      <div class="price">$950 MXN</div>
+      <button class="boton" onclick="agregarProducto('Guantes Urbanos Verano', 950)">
+        Agregar
+      </button>
+    </div>
+    <div class="card">
+      <img
+        src="https://i.ibb.co/WxLg5rB/guante3.jpg"
+        alt="Guantes Invierno Térmicos"
+      />
+      <div class="product-name">Guantes Invierno Térmicos</div>
+      <div class="price">$1,400 MXN</div>
+      <button class="boton" onclick="agregarProducto('Guantes Invierno Térmicos', 1400)">
         Agregar
       </button>
     </div>
@@ -334,175 +356,153 @@
   <div id="monotrajes" class="container">
     <div class="card">
       <img
-        src="https://i.ibb.co/1L8L7qk/monotraje1.jpg"
-        alt="Monotraje Racing"
+        src="583cb9ad-407a-4a44-a0f2-f5dcbf89d65d.jpeg"
+        alt="Monotraje Racing Pro"
       />
-      <div class="product-name">Monotraje Racing</div>
-      <div class="price">$8,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Racing', 8500)">
+      <div class="product-name">Monotraje Racing Pro</div>
+      <div class="price">$15,000 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Racing Pro', 15000)">
         Agregar
       </button>
     </div>
     <div class="card">
       <img
-        src="https://i.ibb.co/6mwh7tY/monotraje2.jpg"
-        alt="Monotraje Touring"
+        src="5868cfc3-4885-410d-8b15-37e4ca8e1b87.jpeg"
+        alt="Monotraje Urbano"
       />
-      <div class="product-name">Monotraje Touring</div>
-      <div class="price">$7,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Touring', 7500)">
+      <div class="product-name">Monotraje Urbano</div>
+      <div class="price">$12,000 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Urbano', 12000)">
+        Agregar
+      </button>
+    </div>
+    <div class="card">
+      <img
+        src="eab2d05f-df07-472f-8bee-83ac488b7980.jpeg"
+        alt="Monotraje Térmico"
+      />
+      <div class="product-name">Monotraje Térmico</div>
+      <div class="price">$14,500 MXN</div>
+      <button class="boton" onclick="agregarProducto('Monotraje Térmico', 14500)">
         Agregar
       </button>
     </div>
   </div>
 
-  <!-- Sección de Ver Carrito -->
-  <div id="vercarrito" class="container">
-    <h2>Carrito de compras</h2>
-    <ul id="lista-carrito"></ul>
-    <p id="total-carrito"></p>
-    <button class="boton" onclick="vaciarCarrito()">Vaciar carrito</button>
-  </div>
+  <div id="resumen" class="resumen"></div>
 
-  <!-- Sección de Quejas y Sugerencias -->
-  <div id="quejas" class="container">
-    <h2>Quejas y Sugerencias</h2>
-    <form id="form-quejas" onsubmit="return enviarQueja(event)">
-      <label for="nombre">Nombre:</label><br />
-      <input type="text" id="nombre" name="nombre" required /><br /><br />
-
-      <label for="correo">Correo electrónico:</label><br />
-      <input type="email" id="correo" name="correo" required /><br /><br />
-
-      <label for="mensaje">Mensaje:</label><br />
-      <textarea id="mensaje" name="mensaje" rows="5" required></textarea><br /><br />
-
-      <button type="submit" class="boton">Enviar</button>
-    </form>
-    <div id="respuesta-form" style="margin-top: 15px; color: green;"></div>
-
-    <p>
-      Contáctanos en: <br />
-      <strong>Email:</strong> arivatmael@gmail.com <br />
-      <strong>Teléfono:</strong> +52 123 456 7890 <br />
-    </p>
-
-    <p>
-      Síguenos en: <br />
-      <a href="https://facebook.com/mael.arivat" target="_blank"
-        >Facebook Mael Arivat</a
-      ><br />
-      <a href="https://instagram.com/mael.arivat" target="_blank"
-        >Instagram Mael Arivat</a
-      >
-    </p>
-  </div>
-
-  <footer>&copy; 2025 Cascos Hats Arivat. Todos los derechos reservados.</footer>
+  <footer>
+    cascos Hats 2025 los mejores :)) &copy;
+  </footer>
 
   <script>
-    // Variables globales
-    const carrito = [];
+    const enlacesMenu = document.querySelectorAll('nav a.menu');
+    const contenedores = document.querySelectorAll('.container');
+    const resumenDiv = document.getElementById('resumen');
+    const inicioDiv = document.getElementById('inicio');
+
+    // Mostrar solo el inicio al cargar
+    mostrarInicio();
 
     function mostrarInicio() {
-      ocultarSecciones();
-      document.getElementById('inicio').style.display = 'flex';
-      document.getElementById('inicio').style.opacity = 1;
-      mostrarMenu(['Inicio', 'Cascos', 'Accesorios', 'Guantes', 'Monotrajes', 'Ver Carrito']);
+      inicioDiv.style.display = 'flex';
+      contenedores.forEach(c => {
+        c.style.display = 'none';
+        c.style.opacity = 0;
+      });
+      resumenDiv.style.display = 'none';
+      enlacesMenu.forEach(e => (e.style.display = 'inline'));
     }
 
     function mostrarTienda() {
-      ocultarSecciones();
-      const tienda = document.getElementById('tienda');
-      tienda.style.display = 'flex';
-      setTimeout(() => {
-        tienda.style.opacity = 1;
-      }, 10);
-      mostrarMenu(['Inicio', 'Cascos', 'Accesorios', 'Guantes', 'Monotrajes', 'Ver Carrito']);
+      inicioDiv.style.display = 'none';
+      mostrarSeccion('tienda');
     }
 
-    function mostrarSeccion(seccion) {
-      ocultarSecciones();
-      const contenedor = document.getElementById(seccion);
-      contenedor.style.display = 'flex';
-      setTimeout(() => {
-        contenedor.style.opacity = 1;
-      }, 10);
-      mostrarMenu(['Inicio', 'Cascos', 'Accesorios', 'Guantes', 'Monotrajes', 'Ver Carrito']);
-    }
-
-    function verCarrito() {
-      ocultarSecciones();
-      const verCarrito = document.getElementById('vercarrito');
-      verCarrito.style.display = 'flex';
-      setTimeout(() => {
-        verCarrito.style.opacity = 1;
-      }, 10);
-      mostrarMenu(['Inicio', 'Cascos', 'Accesorios', 'Guantes', 'Monotrajes', 'Ver Carrito']);
-      mostrarCarrito();
-    }
-
-    function mostrarMenu(opciones) {
-      const links = document.querySelectorAll('nav a');
-      links.forEach(link => {
-        if (opciones.includes(link.textContent)) {
-          link.classList.add('visible');
+    function mostrarSeccion(id) {
+      inicioDiv.style.display = 'none';
+      resumenDiv.style.display = 'none';
+      contenedores.forEach(c => {
+        if (c.id === id) {
+          c.style.display = 'flex';
+          setTimeout(() => (c.style.opacity = 1), 50);
         } else {
-          link.classList.remove('visible');
+          c.style.opacity = 0;
+          setTimeout(() => (c.style.display = 'none'), 400);
         }
       });
+      enlacesMenu.forEach(e => (e.style.display = 'inline'));
     }
 
-    function ocultarSecciones() {
-      const secciones = ['inicio', 'tienda', 'accesorios', 'guantes', 'monotrajes', 'vercarrito', 'quejas'];
-      secciones.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.style.opacity = 0;
-          el.style.display = 'none';
-        }
-      });
-    }
+    let carrito = [];
 
     function agregarProducto(nombre, precio) {
       carrito.push({ nombre, precio });
-      alert(`${nombre} agregado al carrito.`);
+      alert(nombre + ' agregado al carrito.');
     }
 
-    function mostrarCarrito() {
-      const lista = document.getElementById('lista-carrito');
-      const total = document.getElementById('total-carrito');
-      lista.innerHTML = '';
-      let suma = 0;
-      carrito.forEach((producto, index) => {
-        const li = document.createElement('li');
-        li.textContent = `${producto.nombre} - $${producto.precio.toFixed(2)} MXN`;
-        lista.appendChild(li);
-        suma += producto.precio;
-      });
-      total.textContent = `Total: $${suma.toFixed(2)} MXN`;
+    function elegirPago() {
+      if (carrito.length === 0) {
+        alert('No has agregado productos al carrito.echale algo rey');
+        return;
+      }
+      let metodo = prompt(
+        '¿Cómo deseas pagar?\n1. Tarjeta\n2. Transferencia\n3. Pago en tienda'
+      );
+      if (metodo === '1') {
+        mostrarResumen('Tarjeta');
+      } else if (metodo === '2') {
+        mostrarResumen('Transferencia');
+      } else if (metodo === '3') {
+        mostrarResumen('Pago en tienda');
+      } else {
+        alert('pon un metodo valido padre seleciona del 1 al 3.');
+      }
     }
 
-    function vaciarCarrito() {
-      carrito.length = 0;
-      mostrarCarrito();
-      alert('Carrito vacío.');
+    function mostrarResumen(metodoPago) {
+      resumenDiv.style.display = 'block';
+      let lista = carrito
+        .map(
+          p =>
+            `<li>${p.nombre}: $${p.precio.toLocaleString()} MXN</li>`
+        )
+        .join('');
+      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      resumenDiv.innerHTML = `
+        <h2>Resumen de Compra</h2>
+        <ul>${lista}</ul>
+        <p><strong>Total: $${total.toLocaleString()} MXN</strong></p>
+        <p>Método de pago: <em>${metodoPago}</em></p>
+      `;
+
+      // Encuesta de calificación después de mostrar resumen
+      setTimeout(() => {
+        let calificacion = prompt(
+          '¿Quedo bella la pagina y que calif le da del 1 al 10?'
+        );
+        if (calificacion !== null) {
+          alert('Gracias verificaremos su calif de ' + calificacion + '!');
+        }
+      }, 500);
     }
 
-    function enviarQueja(event) {
-      event.preventDefault();
-      const nombre = document.getElementById('nombre').value;
-      const correo = document.getElementById('correo').value;
-      const mensaje = document.getElementById('mensaje').value;
-      // Aquí podrías enviar el formulario a un servidor o API
-      document.getElementById('respuesta-form').textContent =
-        'Gracias por tu mensaje, ' + nombre + '. Te responderemos pronto.';
-      document.getElementById('form-quejas').reset();
-      return false;
+    // Función para mostrar productos agregados al carrito
+    function verCarrito() {
+      if (carrito.length === 0) {
+        alert('Tu carrito está vacío echale un casquito.');
+        return;
+      }
+      let lista = carrito
+        .map(p => `- ${p.nombre}: $${p.precio.toLocaleString()} MXN`)
+        .join('\n');
+      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      alert(
+        'Productos en tu carrito:\n\n' +
+          lista +
+          `\n\nTotal: $${total.toLocaleString()} MXN`
+      );
     }
-
-    // Inicializar página mostrando la sección inicio
-    mostrarInicio();
   </script>
 </body>
 </html>
