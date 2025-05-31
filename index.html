@@ -262,9 +262,6 @@
         Agregar
       </button>
     </div>
-    <div style="width: 100%; text-align: center; margin-top: 30px">
-      <button class="boton" onclick="elegirPago()">Finalizar Compra</button>
-    </div>
   </div>
 
   <!-- Accesorios -->
@@ -497,11 +494,19 @@
         .map(p => `- ${p.nombre}: $${p.precio.toLocaleString()} MXN`)
         .join('\n');
       let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+      
+      // Mostrar el carrito y luego preguntar si quiere finalizar compra
       alert(
         'Productos en tu carrito:\n\n' +
           lista +
           `\n\nTotal: $${total.toLocaleString()} MXN`
       );
+      
+      // Preguntar si quiere finalizar compra
+      let finalizar = confirm('¿Deseas finalizar la compra?');
+      if (finalizar) {
+        elegirPago();
+      }
     }
   </script>
 </body>
