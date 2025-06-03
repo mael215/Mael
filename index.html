@@ -170,6 +170,7 @@
       font-size: 18px;
       display: none;
       background-color: #f9f9f9;
+      margin-top: 130px;
     }
 
     .quejas h2 {
@@ -184,6 +185,7 @@
       font-size: 18px;
       display: none;
       background-color: #f9f9f9;
+      margin-top: 130px;
     }
 
     .conocenos h2 {
@@ -221,6 +223,62 @@
 
     .whatsapp-btn:hover {
       background-color: #1DA851;
+    }
+
+    .formulario-quejas {
+      max-width: 500px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .formulario-quejas h3 {
+      color: #d4af37;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .formulario-quejas label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .formulario-quejas input,
+    .formulario-quejas textarea {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+      transition: border-color 0.3s;
+    }
+
+    .formulario-quejas input:focus,
+    .formulario-quejas textarea:focus {
+      outline: none;
+      border-color: #d4af37;
+    }
+
+    .formulario-quejas button {
+      background-color: #d4af37;
+      color: #000;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 15px;
+      transition: background-color 0.3s;
+    }
+
+    .formulario-quejas button:hover {
+      background-color: #bfa230;
     }
 
     .redes-sociales {
@@ -268,6 +326,10 @@
         width: 90%;
       }
       .inicio {
+        padding: 20px;
+      }
+      .formulario-quejas {
+        margin: 20px;
         padding: 20px;
       }
     }
@@ -496,15 +558,32 @@
   <!-- Quejas y Sugerencias -->
   <div id="quejas" class="quejas">
     <h2>Quejas y Sugerencias</h2>
+
     <div class="contacto-info">
       <p><strong>Teléfono:</strong> 55-7136-7666</p>
       <p><strong>Gmail:</strong> cascos.hats.arivat@gmail.com</p>
     </div>
-    
+
     <a href="https://wa.me/525571367666" class="whatsapp-btn" target="_blank">
       💬 Contactar por WhatsApp
     </a>
-    
+
+    <div class="formulario-quejas">
+      <h3>Envíanos tu queja o sugerencia</h3>
+      <form action="https://formspree.io/f/xjkrvzop" method="POST">
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="email">Correo electrónico:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea><br><br>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+
     <div class="redes-sociales">
       <h3>Síguenos en nuestras redes sociales:</h3>
       <a href="https://www.facebook.com/mael.arivat" class="facebook" target="_blank">
