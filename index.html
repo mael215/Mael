@@ -1,767 +1,909 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cascos Hats Arivat</title>
+  <title>Mael Antonio Marín Tavira - Portafolio</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #fff;
-      color: #333;
-    }
-
-    header {
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 28px;
-      font-weight: bold;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #3b82f6;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --border-color: #e5e7eb;
     }
 
-    nav {
-      background-color: #222;
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      position: fixed;
-      top: 70px;
-      width: 100%;
-      z-index: 999;
-      flex-wrap: wrap;
-    }
+```
+[data-theme="dark"] {
+  --primary-color: #3b82f6;
+  --secondary-color: #2563eb;
+  --accent-color: #60a5fa;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --border-color: #374151;
+}
 
-    nav a {
-      color: #d4af37;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      transition: color 0.3s;
-      display: none;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    nav a.visible {
-      display: inline;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease;
+}
 
-    nav a:hover {
-      color: #bfa230;
-    }
+/* Header y Navegación */
+header {
+  background: var(--bg-primary);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
 
-    .inicio {
-      margin-top: 130px;
-      height: calc(100vh - 130px);
-      background: url('534c8e97-a1b3-4a44-aa94-1fd78c9d6427.jpeg')
-        no-repeat center center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-shadow: 2px 2px 8px black;
-      text-align: center;
-    }
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
 
-    .boton {
-      background-color: #d4af37;
-      border: none;
-      color: #000;
-      padding: 15px 30px;
-      font-size: 20px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: background-color 0.3s;
-    }
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
 
-    .boton:hover {
-      background-color: #bfa230;
-    }
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
 
-    .container {
-      margin-top: 180px;
-      display: none;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 30px;
-      background-color: #f9f9f9;
-      opacity: 0;
-      transition: opacity 1s;
-    }
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
 
-    .card {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      width: 280px;
-      text-align: center;
-      padding: 20px;
-      transition: transform 0.3s;
-    }
+.nav-links a:hover {
+  color: var(--primary-color);
+}
 
-    .card:hover {
-      transform: translateY(-8px);
-    }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+.nav-links a:hover::after {
+  width: 100%;
+}
 
-    .product-name {
-      font-size: 20px;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .price {
-      font-size: 18px;
-      color: #555;
-      margin: 10px 0;
-    }
+.theme-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    footer {
-      background-color: #000;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      margin-top: 50px;
-    }
+.theme-toggle:hover {
+  background: var(--primary-color);
+  color: white;
+}
 
-    .resumen {
-      text-align: center;
-      padding: 30px;
-      font-size: 18px;
-      display: none;
-    }
+/* Secciones */
+section {
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
 
-    .resumen h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #d4af37;
-    }
+section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .resumen em {
-      color: #777;
-    }
+/* Inicio */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
 
-    .quejas {
-      text-align: center;
-      padding: 30px;
-      font-size: 18px;
-      display: none;
-      background-color: #f9f9f9;
-      margin-top: 130px;
-    }
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
 
-    .quejas h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #d4af37;
-    }
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1s ease;
+}
 
-    .conocenos {
-      text-align: center;
-      padding: 30px;
-      font-size: 18px;
-      display: none;
-      background-color: #f9f9f9;
-      margin-top: 130px;
-    }
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease 0.2s both;
+}
 
-    .conocenos h2 {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #d4af37;
-    }
+.cta-button {
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1s ease 0.4s both;
+}
 
-    .conocenos p {
-      margin: 15px 0;
-      line-height: 1.6;
-    }
+.cta-button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
 
-    .contacto-info {
-      margin: 20px 0;
-    }
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
 
-    .contacto-info p {
-      margin: 10px 0;
-      font-size: 16px;
-    }
+.profile-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  margin: 0 auto;
+  animation: float 3s ease-in-out infinite;
+}
 
-    .whatsapp-btn {
-      display: inline-block;
-      background-color: #25D366;
-      color: white;
-      padding: 15px 30px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      margin: 20px 10px;
-      transition: background-color 0.3s;
-    }
+/* Sobre Mí */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: center;
+}
 
-    .whatsapp-btn:hover {
-      background-color: #1DA851;
-    }
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
 
-    .formulario-quejas {
-      max-width: 500px;
-      margin: 30px auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: left;
-    }
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
 
-    .formulario-quejas h3 {
-      color: #d4af37;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
-    .formulario-quejas label {
-      font-weight: bold;
-      color: #333;
-    }
+.skill-tag {
+  background: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
 
-    .formulario-quejas input,
-    .formulario-quejas textarea {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #ddd;
-      border-radius: 5px;
-      font-size: 16px;
-      font-family: 'Roboto', sans-serif;
-      transition: border-color 0.3s;
-    }
+.skill-tag:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
 
-    .formulario-quejas input:focus,
-    .formulario-quejas textarea:focus {
-      outline: none;
-      border-color: #d4af37;
-    }
+/* Proyectos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-    .formulario-quejas button {
-      background-color: #d4af37;
-      color: #000;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 15px;
-      transition: background-color 0.3s;
-    }
+.project-card {
+  background: var(--bg-secondary);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
 
-    .formulario-quejas button:hover {
-      background-color: #bfa230;
-    }
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
 
-    .redes-sociales {
-      margin-top: 30px;
-    }
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
 
-    .redes-sociales h3 {
-      color: #333;
-      margin-bottom: 15px;
-    }
+.project-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
 
-    .redes-sociales a {
-      display: inline-block;
-      margin: 10px 15px;
-      padding: 12px 25px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: transform 0.3s;
-    }
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
 
-    .redes-sociales a:hover {
-      transform: scale(1.05);
-    }
+.project-link {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
 
-    .facebook {
-      background-color: #1877F2;
-    }
+.project-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
 
-    .instagram {
-      background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
-    }
+/* Habilidades */
+.skills-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
 
-    @media (max-width: 768px) {
-      nav {
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .card {
-        width: 90%;
-      }
-      .inicio {
-        padding: 20px;
-      }
-      .formulario-quejas {
-        margin: 20px;
-        padding: 20px;
-      }
-    }
+.skill-category {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+}
 
-    @media (max-width: 480px) {
-      header {
-        font-size: 24px;
-      }
-      nav a {
-        font-size: 16px;
-      }
-      .boton {
-        padding: 12px 25px;
-        font-size: 18px;
-      }
-    }
+.skill-category h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+/* Contacto */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-form {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.contact-info {
+  padding: 2rem 0;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Títulos de sección */
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+}
+```
+
   </style>
 </head>
 
 <body>
-  <header>Cascos Hats Arivat</header>
+  <header>
+    <nav>
+      <div class="logo">Mael A. Marín</div>
+      <ul class="nav-links">
+        <li><a href="#inicio" onclick="showSection('inicio')">Inicio</a></li>
+        <li><a href="#sobre-mi" onclick="showSection('sobre-mi')">Sobre Mí</a></li>
+        <li><a href="#proyectos" onclick="showSection('proyectos')">Proyectos</a></li>
+        <li><a href="#habilidades" onclick="showSection('habilidades')">Habilidades</a></li>
+        <li><a href="#contacto" onclick="showSection('contacto')">Contacto</a></li>
+        <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav>
-    <a href="#inicio" onclick="mostrarInicio()">Inicio</a>
-    <a href="#tienda" class="menu" onclick="mostrarTienda()">Cascos</a>
-    <a href="#accesorios" class="menu" onclick="mostrarSeccion('accesorios')"
-      >Accesorios</a
-    >
-    <a href="#guantes" class="menu" onclick="mostrarSeccion('guantes')">Guantes</a>
-    <a href="#monotrajes" class="menu" onclick="mostrarSeccion('monotrajes')"
-      >Monotrajes</a
-    >
-    <a href="#vercarrito" class="menu" onclick="verCarrito()">Ver Carrito</a>
-    <a href="#conocenos" class="menu" onclick="mostrarConocenos()">Conócenos</a>
-    <a href="#quejas" class="menu" onclick="mostrarQuejas()">Quejas y Sugerencias</a>
-  </nav>
+  <!-- Sección Inicio -->
 
-  <div id="inicio" class="inicio">
-    <button class="boton" onclick="mostrarTienda()">Ingresar a la tienda</button>
-  </div>
+  <section id="inicio" class="active">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Hola, soy Mael</h1>
+        <p>Estudiante de Tecnología en el CECyTE Hidalgo, apasionado por el desarrollo web y la innovación tecnológica.</p>
+        <button class="cta-button" onclick="showSection('proyectos')">Ver mis proyectos</button>
+      </div>
+      <div class="hero-image">
+        <div class="profile-image">👨‍💻</div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Tienda -->
-  <div id="tienda" class="container">
-    <h2 style="width: 100%; text-align: center; color: #d4af37; font-size: 32px; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Tu mejor opción en cascos</h2>
-    <div class="card">
-      <img
-        src="41b521ba-4a2a-408e-871c-589833b2a2fb.jpeg"
-        alt="AGV Pista GP RR Limited"
-      />
-      <div class="product-name">AGV Pista GP RR Limited</div>
-      <div class="price">$23,500 MXN</div>
-      <button
-        class="boton"
-        onclick="agregarProducto('AGV Pista GP RR Limited', 23500)"
-      >
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="5653fa7b-f993-4a35-89fc-9a35e90510e0.jpeg" alt="AGV K6 S" />
-      <div class="product-name">AGV K6 S</div>
-      <div class="price">$14,200 MXN</div>
-      <button class="boton" onclick="agregarProducto('AGV K6 S', 14200)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="9916c4f1-504b-412d-ab65-498df34b9fbc.jpeg"
-        alt="AGV Pista GP RR Mugello"
-      />
-      <div class="product-name">AGV Pista GP RR Mugello</div>
-      <div class="price">$25,000 MXN</div>
-      <button
-        class="boton"
-        onclick="agregarProducto('AGV Pista GP RR Mugello', 25000)"
-      >
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img src="43574f41-e282-4e78-aceb-b9c5a1c2191f.jpeg" alt="AGV Sport Modular" />
-      <div class="product-name">AGV Sport Modular</div>
-      <div class="price">$18,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('AGV Sport Modular', 18500)">
-        Agregar
-      </button>
-    </div>
-  </div>
+  <!-- Sección Sobre Mí -->
 
-  <!-- Accesorios -->
-  <div id="accesorios" class="container">
-    <h2 style="width: 100%; text-align: center; color: #d4af37; font-size: 32px; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">¿Olvidas algo?</h2>
-    <div class="card">
-      <img
-        src="3b7d9a91-4918-41fc-82f2-a1400134e209.jpeg"
-        alt="Visor Iridium"
-      />
-      <div class="product-name">Visor Iridium</div>
-      <div class="price">$1,200 MXN</div>
-      <button class="boton" onclick="agregarProducto('Visor Iridium', 1200)">
-        Agregar
-      </button>
+  <section id="sobre-mi">
+    <h2 class="section-title">Sobre Mí</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <div class="profile-image">🎓</div>
+      </div>
+      <div class="about-text">
+        <h2>Mael Antonio Marín Tavira</h2>
+        <p>Soy estudiante del Colegio de Estudios Científicos y Tecnológicos del Estado de Hidalgo, donde me especializo en tecnología y desarrollo web.</p>
+        <p>Mi pasión por la programación me ha llevado a crear proyectos innovadores, desde tiendas virtuales hasta aplicaciones interactivas. Me encanta aprender nuevas tecnologías y aplicarlas en soluciones creativas.</p>
+        <p>Siempre busco maneras de combinar el diseño moderno con la funcionalidad para crear experiencias digitales excepcionales.</p>
+        <div class="skills">
+          <div class="skill-tag">HTML5</div>
+          <div class="skill-tag">CSS3</div>
+          <div class="skill-tag">JavaScript</div>
+          <div class="skill-tag">Diseño Web</div>
+          <div class="skill-tag">UI/UX</div>
+          <div class="skill-tag">Responsive</div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <img
-        src="6f133094-9bd6-4a7a-add7-b02c0e7c787d.jpeg"
-        alt="Bolsa para casco"
-      />
-      <div class="product-name">Bolsa para casco</div>
-      <div class="price">$650 MXN</div>
-      <button class="boton" onclick="agregarProducto('Bolsa para casco', 650)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="d553de29-ebf7-4493-8dc5-9ada8ff68f82.jpeg"
-        alt="Pinlock antivaho"
-      />
-      <div class="product-name">Pinlock antivaho</div>
-      <div class="price">$800 MXN</div>
-      <button class="boton" onclick="agregarProducto('Pinlock antivaho', 800)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="245865a5-68db-4678-b918-ab7e1280e3bf.jpeg"
-        alt="Soporte GoPro para casco"
-      />
-      <div class="product-name">Soporte GoPro para casco</div>
-      <div class="price">$300 MXN</div>
-      <button
-        class="boton"
-        onclick="agregarProducto('Soporte GoPro para casco', 300)"
-      >
-        Agregar
-      </button>
+  </section>
+
+  <!-- Sección Proyectos -->
+
+  <section id="proyectos">
+    <h2 class="section-title">Mis Proyectos</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>🏪 Cascos Hats Arivat</h3>
+        <p>Tienda virtual especializada en equipamiento para motociclistas. Incluye carrito de compras, sistema de pagos y diseño responsive.</p>
+        <div class="project-links">
+          <a href="#" class="project-link">Ver Demo</a>
+          <a href="#" class="project-link">Código</a>
+        </div>
+      </div>
+
+```
+  <div class="project-card">
+    <h3>📱 Aplicación Interactiva</h3>
+    <p>Aplicación web con interfaz moderna que incluye animaciones CSS, formularios dinámicos y modo oscuro.</p>
+    <div class="project-links">
+      <a href="#" class="project-link">Ver Demo</a>
+      <a href="#" class="project-link">Código</a>
     </div>
   </div>
-
-  <!-- Guantes -->
-  <div id="guantes" class="container">
-    <h2 style="width: 100%; text-align: center; color: #d4af37; font-size: 32px; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Vive al máximo</h2>
-    <div class="card">
-      <img src="6e686373-87ee-4c0a-ac6c-30f2a5d9fbae.jpeg" alt="Guantes Racing Pro" />
-      <div class="product-name">Guantes Racing Pro</div>
-      <div class="price">$2,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Racing Pro', 2500)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="b5e7e806-cd79-419b-8fbe-2f02a624937a.jpeg"
-        alt="Guantes Urbanos Verano"
-      />
-      <div class="product-name">Guantes Urbanos Verano</div>
-      <div class="price">$950 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Urbanos Verano', 950)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="71c65371-bdad-4c6d-af0f-62a347d61e9a.jpeg"
-        alt="Guantes Invierno Térmicos"
-      />
-      <div class="product-name">Guantes Invierno Térmicos</div>
-      <div class="price">$1,400 MXN</div>
-      <button class="boton" onclick="agregarProducto('Guantes Invierno Térmicos', 1400)">
-        Agregar
-      </button>
+  
+  <div class="project-card">
+    <h3>🎯 Dashboard Analytics</h3>
+    <p>Panel de control con gráficos interactivos y visualización de datos en tiempo real usando JavaScript vanilla.</p>
+    <div class="project-links">
+      <a href="#" class="project-link">Ver Demo</a>
+      <a href="#" class="project-link">Código</a>
     </div>
   </div>
-
-  <!-- Monotrajes -->
-  <div id="monotrajes" class="container">
-    <h2 style="width: 100%; text-align: center; color: #d4af37; font-size: 32px; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">Viste elegante</h2>
-    <div class="card">
-      <img
-        src="583cb9ad-407a-4a44-a0f2-f5dcbf89d65d.jpeg"
-        alt="Monotraje Racing Pro"
-      />
-      <div class="product-name">Monotraje Racing Pro</div>
-      <div class="price">$15,000 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Racing Pro', 15000)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="5868cfc3-4885-410d-8b15-37e4ca8e1b87.jpeg"
-        alt="Monotraje Urbano"
-      />
-      <div class="product-name">Monotraje Urbano</div>
-      <div class="price">$12,000 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Urbano', 12000)">
-        Agregar
-      </button>
-    </div>
-    <div class="card">
-      <img
-        src="eab2d05f-df07-472f-8bee-83ac488b7980.jpeg"
-        alt="Monotraje Térmico"
-      />
-      <div class="product-name">Monotraje Térmico</div>
-      <div class="price">$14,500 MXN</div>
-      <button class="boton" onclick="agregarProducto('Monotraje Térmico', 14500)">
-        Agregar
-      </button>
+  
+  <div class="project-card">
+    <h3>🌐 Portafolio Personal</h3>
+    <p>Sitio web personal moderno con diseño responsivo, animaciones suaves y sistema de navegación fluido.</p>
+    <div class="project-links">
+      <a href="#" class="project-link">Ver Demo</a>
+      <a href="#" class="project-link">Código</a>
     </div>
   </div>
+</div>
+```
 
-  <!-- Conócenos -->
-  <div id="conocenos" class="conocenos">
-    <h2>Conócenos</h2>
-    <p>Bienvenido a <strong>Cascos Hats Arivat</strong>, tu tienda virtual especializada en equipamiento para motociclistas.</p>
-    <p>Nos dedicamos a ofrecer productos de la más alta calidad para garantizar tu seguridad y comodidad en cada viaje. Contamos con una amplia selección de cascos, guantes, monotrajes y accesorios de las mejores marcas del mercado.</p>
-    <p>Nuestra misión es brindarte el mejor servicio y los productos más confiables para que puedas disfrutar al máximo de tu pasión por las motocicletas.</p>
-    <p><strong>Esta tienda virtual fue creada por Mael Antonio Marín Tavira, estudiante del Colegio De Estudios Científicos y Tecnológicos del Estado de Hidalgo.</strong></p>
-    <p>¡Gracias por confiar en nosotros para tu equipamiento motociclístico!</p>
+  </section>
+
+  <!-- Sección Habilidades -->
+
+  <section id="habilidades">
+    <h2 class="section-title">Mis Habilidades</h2>
+    <div class="skills-section">
+      <div class="skill-category">
+        <h3>🖥️ Frontend</h3>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>HTML5</span>
+            <span>95%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 95%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>CSS3</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>JavaScript</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%"></div>
+          </div>
+        </div>
+      </div>
+
+```
+  <div class="skill-category">
+    <h3>🎨 Diseño</h3>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>UI/UX Design</span>
+        <span>80%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 80%"></div>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>Responsive Design</span>
+        <span>90%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 90%"></div>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>Prototipado</span>
+        <span>75%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 75%"></div>
+      </div>
+    </div>
   </div>
-
-  <!-- Quejas y Sugerencias -->
-  <div id="quejas" class="quejas">
-    <h2>Quejas y Sugerencias</h2>
-
-    <div class="contacto-info">
-      <p><strong>Teléfono:</strong> 55-7136-7666</p>
-      <p><strong>Gmail:</strong> cascos.hats.arivat@gmail.com</p>
+  
+  <div class="skill-category">
+    <h3>🔧 Herramientas</h3>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>Git & GitHub</span>
+        <span>70%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 70%"></div>
+      </div>
     </div>
-
-    <a href="https://wa.me/525571367666" class="whatsapp-btn" target="_blank">
-      💬 Contactar por WhatsApp
-    </a>
-
-    <div class="formulario-quejas">
-      <h3>Envíanos tu queja o sugerencia</h3>
-      <form action="https://formspree.io/f/xjkrvzop" method="POST">
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre" required><br><br>
-
-        <label for="email">Correo electrónico:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="mensaje">Mensaje:</label><br>
-        <textarea id="mensaje" name="mensaje" rows="5" required></textarea><br><br>
-
-        <button type="submit">Enviar</button>
-      </form>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>Figma</span>
+        <span>65%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 65%"></div>
+      </div>
     </div>
-
-    <div class="redes-sociales">
-      <h3>Síguenos en nuestras redes sociales:</h3>
-      <a href="https://www.facebook.com/mael.arivat" class="facebook" target="_blank">
-        📘 Facebook - Mael Arivat
-      </a>
-      <a href="https://www.instagram.com/maelarivat?igsh=cG1ic3lqcDNuY3Yx&utm_source=qr" class="instagram" target="_blank">
-        📷 Instagram - Mael Arivat
-      </a>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>VS Code</span>
+        <span>95%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 95%"></div>
+      </div>
     </div>
   </div>
+</div>
+```
 
-  <div id="resumen" class="resumen"></div>
+  </section>
 
-  <footer>
-    cascos Hats 2025 los mejores :)) &copy;
-  </footer>
+  <!-- Sección Contacto -->
+
+  <section id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <div class="contact-content">
+      <div class="contact-form">
+        <h3>Envíame un mensaje</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" name="asunto" required>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="cta-button">Enviar Mensaje</button>
+        </form>
+      </div>
+
+```
+  <div class="contact-info">
+    <h3>Información de Contacto</h3>
+    <div class="contact-item">
+      <div class="contact-icon">📧</div>
+      <div>
+        <strong>Email</strong><br>
+        mael.marin@cecyte.hidalgo.mx
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📱</div>
+      <div>
+        <strong>Teléfono</strong><br>
+        +52 55 7136 7666
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">🌐</div>
+      <div>
+        <strong>Redes Sociales</strong><br>
+        <a href="https://www.facebook.com/mael.arivat" target="_blank" style="color: var(--primary-color);">Facebook</a> |
+        <a href="https://www.instagram.com/maelarivat" target="_blank" style="color: var(--primary-color);">Instagram</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">🎓</div>
+      <div>
+        <strong>Institución</strong><br>
+        CECyTE Hidalgo
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
 
   <script>
-    const enlacesMenu = document.querySelectorAll('nav a.menu');
-    const contenedores = document.querySelectorAll('.container');
-    const resumenDiv = document.getElementById('resumen');
-    const inicioDiv = document.getElementById('inicio');
-    const quejasDiv = document.getElementById('quejas');
-    const conocenosDiv = document.getElementById('conocenos');
-
-    // Mostrar solo el inicio al cargar
-    mostrarInicio();
-
-    function mostrarInicio() {
-      inicioDiv.style.display = 'flex';
-      contenedores.forEach(c => {
-        c.style.display = 'none';
-        c.style.opacity = 0;
+    // Navegación suave entre secciones
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.classList.remove('active');
       });
-      resumenDiv.style.display = 'none';
-      quejasDiv.style.display = 'none';
-      conocenosDiv.style.display = 'none';
-      enlacesMenu.forEach(e => (e.style.display = 'inline'));
-    }
-
-    function mostrarTienda() {
-      inicioDiv.style.display = 'none';
-      mostrarSeccion('tienda');
-    }
-
-    function mostrarSeccion(id) {
-      inicioDiv.style.display = 'none';
-      resumenDiv.style.display = 'none';
-      quejasDiv.style.display = 'none';
-      conocenosDiv.style.display = 'none';
-      contenedores.forEach(c => {
-        if (c.id === id) {
-          c.style.display = 'flex';
-          setTimeout(() => (c.style.opacity = 1), 50);
-        } else {
-          c.style.opacity = 0;
-          setTimeout(() => (c.style.display = 'none'), 400);
+      
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+      
+      // Actualizar estado del menú
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
         }
       });
-      enlacesMenu.forEach(e => (e.style.display = 'inline'));
     }
 
-    function mostrarQuejas() {
-      inicioDiv.style.display = 'none';
-      resumenDiv.style.display = 'none';
-      conocenosDiv.style.display = 'none';
-      contenedores.forEach(c => {
-        c.style.display = 'none';
-        c.style.opacity = 0;
-      });
-      quejasDiv.style.display = 'block';
-      enlacesMenu.forEach(e => (e.style.display = 'inline'));
-    }
-
-    function mostrarConocenos() {
-      inicioDiv.style.display = 'none';
-      resumenDiv.style.display = 'none';
-      quejasDiv.style.display = 'none';
-      contenedores.forEach(c => {
-        c.style.display = 'none';
-        c.style.opacity = 0;
-      });
-      conocenosDiv.style.display = 'block';
-      enlacesMenu.forEach(e => (e.style.display = 'inline'));
-    }
-
-    let carrito = [];
-
-    function agregarProducto(nombre, precio) {
-      carrito.push({ nombre, precio });
-      alert(nombre + ' agregado al carrito.');
-    }
-
-    function elegirPago() {
-      if (carrito.length === 0) {
-        alert('No has agregado productos al carrito.echale algo rey');
-        return;
-      }
-      let metodo = prompt(
-        '¿Cómo deseas pagar?\n1. Tarjeta\n2. Transferencia\n3. Pago en tienda'
-      );
-      if (metodo === '1') {
-        mostrarResumen('Tarjeta');
-      } else if (metodo === '2') {
-        mostrarResumen('Transferencia');
-      } else if (metodo === '3') {
-        mostrarResumen('Pago en tienda');
+    // Modo oscuro
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle');
+      
+      if (body.hasAttribute('data-theme')) {
+        body.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙';
       } else {
-        alert('pon un metodo valido padre seleciona del 1 al 3.');
+        body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
       }
     }
 
-    function mostrarResumen(metodoPago) {
-      resumenDiv.style.display = 'block';
-      contenedores.forEach(c => {
-        c.style.display = 'none';
-        c.style.opacity = 0;
-      });
-      quejasDiv.style.display = 'none';
-      conocenosDiv.style.display = 'none';
-      let lista = carrito
-        .map(
-          p =>
-            `<li>${p.nombre}: $${p.precio.toLocaleString()} MXN</li>`
-        )
-        .join('');
-      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
-      resumenDiv.innerHTML = `
-        <h2>Resumen de Compra</h2>
-        <ul>${lista}</ul>
-        <p><strong>Total: $${total.toLocaleString()} MXN</strong></p>
-        <p>Método de pago: <em>${metodoPago}</em></p>
-        <button class="boton" onclick="finalizarCompra()">Finalizar Compra</button>
-      `;
-
-      // Encuesta de calificación después de mostrar resumen
-      setTimeout(() => {
-        let calificacion = prompt(
-          'CALIFICANOS ¿que tal le parecio nuestra pagina del 1 al 10?'
-        );
-        if (calificacion !== null) {
-          alert('Gracias verificaremos su calificacion de ' + calificacion + '!');
+    // Animaciones de scroll suave
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.project-card, .skill-category, .contact-item');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
         }
-      }, 500);
+      });
     }
 
-    function finalizarCompra() {
-      alert('¡Compra finalizada exitosamente! Gracias por tu compra.');
-      // Restablecer carrito
-      carrito = [];
-      // Volver al menú principal
-      mostrarInicio();
+    // Formulario de contacto
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Simular envío
+      alert(`¡Gracias ${data.nombre}! Tu mensaje ha sido enviado. Te contactaré pronto.`);
+      this.reset();
+    });
+
+    // Animación de barras de progreso
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-progress');
+      skillBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 500);
+      });
     }
 
-    // Función para mostrar productos agregados al carrito
-    function verCarrito() {
-      if (carrito.length === 0) {
-        alert('Tu carrito está vacío echale un casquito.');
-        return;
-      }
-      let lista = carrito
-        .map(p => `- ${p.nombre}: $${p.precio.toLocaleString()} MXN`)
-        .join('\n');
-      let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+    // Inicializar cuando se muestra la sección de habilidades
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.id === 'habilidades') {
+          animateSkillBars();
+        }
+      });
+    });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', function() {
+      showSection('inicio');
       
-      // Mostrar el carrito y luego preguntar si quiere finalizar compra
-      alert(
-        'Productos en tu carrito:\n\n' +
-          lista +
-          `\n\nTotal: $${total.toLocaleString()} MXN`
-      );
+      // Configurar elementos iniciales para animaciones
+      const animatedElements = document.querySelectorAll('.project-card, .skill-category, .contact-item');
+      animatedElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'all 0.6s ease';
+      });
+    });
+
+    // Scroll suave para navegación
+    document.addEventListener('scroll', animateOnScroll);
+    
+    // Efecto de typing en el título principal
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) {
+      const text = heroTitle.textContent;
+      heroTitle.textContent = '';
+      let i = 0;
       
-      // Preguntar si quiere finalizar compra
-      let finalizar = confirm('¿Deseas finalizar la compra?');
-      if (finalizar) {
-        elegirPago();
+      function typeWriter() {
+        if (i < text.length) {
+          heroTitle.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        }
       }
+      
+      setTimeout(typeWriter, 1000);
     }
   </script>
+
 </body>
 </html>
