@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mael Antonio Marín Tavira - Portafolio</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #3b82f6;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --border-color: #e5e7eb;
+    }
+
+```
+[data-theme="dark"] {
+  --primary-color: #3b82f6;
+  --secondary-color: #2563eb;
+  --accent-color: #60a5fa;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --border-color: #374151;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease;
+}
+
+/* Header y Navegación */
+header {
+  background: var(--bg-primary);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.theme-toggle {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* Secciones */
+section {
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+section.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Inicio */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 1s ease;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.cta-button {
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+.cta-button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.profile-image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  margin: 0 auto;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Sobre Mí */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.skill-tag {
+  background: var(--bg-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.skill-tag:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Proyectos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: var(--bg-secondary);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.project-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Habilidades */
+.skills-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.skill-category {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.skill-category h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+/* Contacto */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-form {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.contact-info {
+  padding: 2rem 0;
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Títulos de sección */
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  border-radius: 2px;
+}
+```
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">Mael A. Marín</div>
+      <ul class="nav-links">
+        <li><a href="#inicio" onclick="showSection('inicio')">Inicio</a></li>
+        <li><a href="#sobre-mi" onclick="showSection('sobre-mi')">Sobre Mí</a></li>
+        <li><a href="#proyectos" onclick="showSection('proyectos')">Proyectos</a></li>
+        <li><a href="#habilidades" onclick="showSection('habilidades')">Habilidades</a></li>
+        <li><a href="#contacto" onclick="showSection('contacto')">Contacto</a></li>
+        <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección Inicio -->
+
+  <section id="inicio" class="active">
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Hola, soy Mael</h1>
+        <p>Estudiante de Tecnología en el CECyTE Hidalgo, apasionado por el desarrollo web y la innovación tecnológica.</p>
+        <button class="cta-button" onclick="showSection('proyectos')">Ver mis proyectos</button>
+      </div>
+      <div class="hero-image">
+        <div class="profile-image">👨‍💻</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Sobre Mí -->
+
+  <section id="sobre-mi">
+    <h2 class="section-title">Sobre Mí</h2>
+    <div class="about-content">
+      <div class="about-image">
+        <div class="profile-image">🎓</div>
+      </div>
+      <div class="about-text">
+        <h2>Mael Antonio Marín Tavira</h2>
+        <p>Soy estudiante del Colegio de Estudios Científicos y Tecnológicos del Estado de Hidalgo, donde me especializo en tecnología y desarrollo web.</p>
+        <p>Mi pasión por la programación me ha llevado a crear proyectos innovadores, desde tiendas virtuales hasta aplicaciones interactivas. Me encanta aprender nuevas tecnologías y aplicarlas en soluciones creativas.</p>
+        <p>Siempre busco maneras de combinar el diseño moderno con la funcionalidad para crear experiencias digitales excepcionales.</p>
+        <div class="skills">
+          <div class="skill-tag">HTML5</div>
+          <div class="skill-tag">CSS3</div>
+          <div class="skill-tag">JavaScript</div>
+          <div class="skill-tag">Diseño Web</div>
+          <div class="skill-tag">UI/UX</div>
+          <div class="skill-tag">Responsive</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Proyectos -->
+
+  <section id="proyectos">
+    <h2 class="section-title">Mis Proyectos</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>🏪 Cascos Hats Arivat</h3>
+        <p>Tienda virtual especializada en equipamiento para motociclistas. Incluye carrito de compras, sistema de pagos y diseño responsive.</p>
+        <div class="project-links">
+          <a href="#" class="project-link">Ver Demo</a>
+          <a href="#" class="project-link">Código</a>
+        </div>
+      </div>
+
+```
+  <div class="project-card">
+    <h3>📱 Aplicación Interactiva</h3>
+    <p>Aplicación web con interfaz moderna que incluye animaciones CSS, formularios dinámicos y modo oscuro.</p>
+    <div class="project-links">
+      <a href="#" class="project-link">Ver Demo</a>
+      <a href="#" class="project-link">Código</a>
+    </div>
+  </div>
+  
+  <div class="project-card">
+    <h3>🎯 Dashboard Analytics</h3>
+    <p>Panel de control con gráficos interactivos y visualización de datos en tiempo real usando JavaScript vanilla.</p>
+    <div class="project-links">
+      <a href="#" class="project-link">Ver Demo</a>
+      <a href="#" class="project-link">Código</a>
+    </div>
+  </div>
+  
+  <div class="project-card">
+    <h3>🌐 Portafolio Personal</h3>
+    <p>Sitio web personal moderno con diseño responsivo, animaciones suaves y sistema de navegación fluido.</p>
+    <div class="project-links">
+      <a href="#" class="project-link">Ver Demo</a>
+      <a href="#" class="project-link">Código</a>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- Sección Habilidades -->
+
+  <section id="habilidades">
+    <h2 class="section-title">Mis Habilidades</h2>
+    <div class="skills-section">
+      <div class="skill-category">
+        <h3>🖥️ Frontend</h3>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>HTML5</span>
+            <span>95%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 95%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>CSS3</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">
+            <span>JavaScript</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%"></div>
+          </div>
+        </div>
+      </div>
+
+```
+  <div class="skill-category">
+    <h3>🎨 Diseño</h3>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>UI/UX Design</span>
+        <span>80%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 80%"></div>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>Responsive Design</span>
+        <span>90%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 90%"></div>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>Prototipado</span>
+        <span>75%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 75%"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="skill-category">
+    <h3>🔧 Herramientas</h3>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>Git & GitHub</span>
+        <span>70%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 70%"></div>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>Figma</span>
+        <span>65%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 65%"></div>
+      </div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-name">
+        <span>VS Code</span>
+        <span>95%</span>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 95%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- Sección Contacto -->
+
+  <section id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <div class="contact-content">
+      <div class="contact-form">
+        <h3>Envíame un mensaje</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" name="asunto" required>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="cta-button">Enviar Mensaje</button>
+        </form>
+      </div>
+
+```
+  <div class="contact-info">
+    <h3>Información de Contacto</h3>
+    <div class="contact-item">
+      <div class="contact-icon">📧</div>
+      <div>
+        <strong>Email</strong><br>
+        mael.marin@cecyte.hidalgo.mx
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📱</div>
+      <div>
+        <strong>Teléfono</strong><br>
+        +52 55 7136 7666
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">🌐</div>
+      <div>
+        <strong>Redes Sociales</strong><br>
+        <a href="https://www.facebook.com/mael.arivat" target="_blank" style="color: var(--primary-color);">Facebook</a> |
+        <a href="https://www.instagram.com/maelarivat" target="_blank" style="color: var(--primary-color);">Instagram</a>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">🎓</div>
+      <div>
+        <strong>Institución</strong><br>
+        CECyTE Hidalgo
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <script>
+    // Navegación suave entre secciones
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.classList.add('active');
+      }
+      
+      // Actualizar estado del menú
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Modo oscuro
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle');
+      
+      if (body.hasAttribute('data-theme')) {
+        body.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙';
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
+      }
+    }
+
+    // Animaciones de scroll suave
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.project-card, .skill-category, .contact-item');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+        }
+      });
+    }
+
+    // Formulario de contacto
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Simular envío
+      alert(`¡Gracias ${data.nombre}! Tu mensaje ha sido enviado. Te contactaré pronto.`);
+      this.reset();
+    });
+
+    // Animación de barras de progreso
+    function animateSkillBars() {
+      const skillBars = document.querySelectorAll('.skill-progress');
+      skillBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 500);
+      });
+    }
+
+    // Inicializar cuando se muestra la sección de habilidades
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.id === 'habilidades') {
+          animateSkillBars();
+        }
+      });
+    });
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', function() {
+      showSection('inicio');
+      
+      // Configurar elementos iniciales para animaciones
+      const animatedElements = document.querySelectorAll('.project-card, .skill-category, .contact-item');
+      animatedElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'all 0.6s ease';
+      });
+    });
+
+    // Scroll suave para navegación
+    document.addEventListener('scroll', animateOnScroll);
+    
+    // Efecto de typing en el título principal
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) {
+      const text = heroTitle.textContent;
+      heroTitle.textContent = '';
+      let i = 0;
+      
+      function typeWriter() {
+        if (i < text.length) {
+          heroTitle.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        }
+      }
+      
+      setTimeout(typeWriter, 1000);
+    }
+  </script>
+
+</body>
+</html>
